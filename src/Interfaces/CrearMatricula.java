@@ -13,18 +13,16 @@ import Clases.Teacher;
  * @author maria
  */
 public class CrearMatricula extends javax.swing.JFrame {
-
-    /**
-     * Creates new form CrearMatricula
-     */
+    
+    DefaultComboBoxModel modelCombo = new DefaultComboBoxModel();
+    
     public CrearMatricula() {
         initComponents();
         cargarTeacher(teachers);
         this.setLocationRelativeTo(null);
-        
     }
     
-    public void cargarTeacher(JComboBox teachers){
+    private void cargarTeacher(JComboBox teachers){
         
         //Lectura de archivos
         String text = "";
@@ -34,17 +32,14 @@ public class CrearMatricula extends javax.swing.JFrame {
         nom[0] = "Sara";
         nom[1] = "Maria";
         
-        
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        
         int i=0;
         
         while(i>3){
-            model.addElement(new Teacher(nom[i],i));
+            modelCombo.addElement(nom[i]);
             i++;
         }
         
-        teachers.setModel(model);
+        teachers.setModel(modelCombo);
         
     }
 
@@ -101,7 +96,7 @@ public class CrearMatricula extends javax.swing.JFrame {
 
         jLabel4.setText("Asignature");
 
-        teachers.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        teachers.setModel(modelCombo);
         teachers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 teachersActionPerformed(evt);
