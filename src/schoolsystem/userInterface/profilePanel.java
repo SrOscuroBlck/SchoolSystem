@@ -9,12 +9,21 @@ package schoolsystem.userInterface;
  * @author gustavocamargo
  */
 public class profilePanel extends javax.swing.JPanel {
+    
+    Student student = new Student();
+   
 
     /**
      * Creates new form profilePanel
      */
     public profilePanel() {
         initComponents();
+        if (student.getGender() == 'M') {
+            genderBox.setSelectedIndex(0);
+        }else {
+            genderBox.setSelectedIndex(1);
+        }
+        observationsArea.setText(student.getObservations());
     }
 
     /**
@@ -34,16 +43,16 @@ public class profilePanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        observationsArea = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         nameField = new javax.swing.JTextField();
         idField = new javax.swing.JTextField();
         ageField = new javax.swing.JTextField();
         userField = new javax.swing.JTextField();
-        genderField = new javax.swing.JTextField();
         parentsField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        genderBox = new javax.swing.JComboBox<>();
 
         jLabel8.setFont(new java.awt.Font("Futura", 0, 24)); // NOI18N
         jLabel8.setText("These are your grades");
@@ -66,9 +75,9 @@ public class profilePanel extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Futura", 0, 14)); // NOI18N
         jLabel6.setText("Parents");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        observationsArea.setColumns(20);
+        observationsArea.setRows(5);
+        jScrollPane1.setViewportView(observationsArea);
 
         jLabel7.setFont(new java.awt.Font("Futura", 0, 14)); // NOI18N
         jLabel7.setText("Observations:");
@@ -90,9 +99,6 @@ public class profilePanel extends javax.swing.JPanel {
         userField.setFont(new java.awt.Font("Futura", 0, 14)); // NOI18N
         userField.setText("jTextField1");
 
-        genderField.setFont(new java.awt.Font("Futura", 0, 14)); // NOI18N
-        genderField.setText("jTextField1");
-
         parentsField.setFont(new java.awt.Font("Futura", 0, 14)); // NOI18N
         parentsField.setText("jTextField1");
         parentsField.addActionListener(new java.awt.event.ActionListener() {
@@ -101,10 +107,17 @@ public class profilePanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Confirm edit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Futura", 0, 24)); // NOI18N
         jLabel9.setText("This is your profile");
+
+        genderBox.setModel(new javax.swing.DefaultComboBoxModel<>(new Character[] { 'M', 'F' }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -147,8 +160,8 @@ public class profilePanel extends javax.swing.JPanel {
                                                 .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(genderField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(genderBox, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel6)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -181,7 +194,7 @@ public class profilePanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(genderField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(genderBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -208,10 +221,15 @@ public class profilePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_parentsFieldActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        student.setGender(genderBox.getSelectedItem().toString().charAt(0));
+        student.setObservations(observationsArea.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageField;
-    private javax.swing.JTextField genderField;
+    private javax.swing.JComboBox<Character> genderBox;
     private javax.swing.JTextField idField;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -224,8 +242,8 @@ public class profilePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField nameField;
+    private javax.swing.JTextArea observationsArea;
     private javax.swing.JTextField parentsField;
     private javax.swing.JTextField userField;
     // End of variables declaration//GEN-END:variables
