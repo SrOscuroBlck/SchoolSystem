@@ -5,19 +5,27 @@
 package schoolsystem.userInterface.TSInterface;
 
 import java.awt.BorderLayout;
+import schoolsystem.users.Student;
+
 
 /**
  *
  * @author gustavocamargo
  */
 public class UserGUI extends javax.swing.JFrame {
+    
+    public int position;
+    
+    public void catchStudentPos(int pos) {
+        position = pos;
+        System.out.println("UserGUI: " + position);
+    }
 
     /**
      * Creates new form UserGUI
      */
     public UserGUI() {
         initComponents();
-        
     }
 
     /**
@@ -137,6 +145,8 @@ public class UserGUI extends javax.swing.JFrame {
        grades.setSize(640,370);
        grades.setLocation(0,0);
        
+       System.out.println(position);
+       
        principalPanel.removeAll();
        principalPanel.add(grades,BorderLayout.CENTER);
        principalPanel.revalidate();
@@ -147,6 +157,7 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
         profilePanel profile = new profilePanel();
+
         profile.setSize(640,370);
         profile.setLocation(0,0);
         
@@ -154,6 +165,9 @@ public class UserGUI extends javax.swing.JFrame {
         principalPanel.add(profile,BorderLayout.CENTER);
         principalPanel.revalidate();
         principalPanel.repaint();
+        
+        profile.catchStudentPos(position);
+        
     }//GEN-LAST:event_profileButtonActionPerformed
 
     /**

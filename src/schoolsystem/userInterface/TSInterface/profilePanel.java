@@ -4,27 +4,52 @@
  */
 package schoolsystem.userInterface.TSInterface;
 
+import java.util.Vector;
+import schoolsystem.users.Student;
+import static schoolsystem.users.Student.mostrar;
+import schoolsystem.users.UserList;
+
 /**
  *
  * @author gustavocamargo
  */
 public class profilePanel extends javax.swing.JPanel {
     
-    Student student = new Student();
-   
+    
+    
+    public int position;
+    
+    public Vector lista = UserList.mostrarEstudiante();
+    
+    
+    public void catchStudentPos(int pos) {
+        position = pos;
+    }
+    
+    public Student student = (Student)lista.elementAt(position);
 
+    
     /**
      * Creates new form profilePanel
      */
     public profilePanel() {
         initComponents();
-        if (student.getGender() == 'M') {
+        System.out.println("Profile: " + position);
+        nameField.setText(student.getNombre());
+        userField.setText(student.getUsuario());
+        ageField.setText(Integer.toString(student.getEdad()));
+        parentsField.setText(student.getNombrePadres()); 
+        
+        
+        if (student.getGenero() == 'M') {
             genderBox.setSelectedIndex(0);
         }else {
             genderBox.setSelectedIndex(1);
         }
-        observationsArea.setText(student.getObservations());
+        observationsArea.setText(student.getObservaciones());
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -222,8 +247,8 @@ public class profilePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_parentsFieldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        student.setGender(genderBox.getSelectedItem().toString().charAt(0));
-        student.setObservations(observationsArea.getText());
+        student.setGenero(genderBox.getSelectedItem().toString().charAt(0));
+        student.setObservaciones(observationsArea.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
