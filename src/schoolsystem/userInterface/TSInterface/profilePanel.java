@@ -6,8 +6,8 @@ package schoolsystem.userInterface.TSInterface;
 
 import java.util.Vector;
 import schoolsystem.users.Student;
-import static schoolsystem.users.Student.mostrar;
 import schoolsystem.users.UserList;
+import static schoolsystem.users.Student.getList;
 
 /**
  *

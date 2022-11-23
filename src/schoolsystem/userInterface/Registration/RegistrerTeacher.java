@@ -256,7 +256,7 @@ public class RegistrerTeacher extends javax.swing.JFrame {
 
     private void registrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarButtonActionPerformed
         if (!textusuario.getText().isEmpty() && !passwordField.getText().isEmpty() && !textNombe.getText().isEmpty() && !textEdad.getText().isEmpty() && (!masculinoCheckBox.isSelected() == false || !femeninoCheckBox.isSelected() == false) && !txtCorreo.getText().isEmpty()) {
-            if (Teacher.verificarUsuarioNuevo(textusuario.getText()) == -1) {
+            if (Teacher.verifyNewUser(textusuario.getText()) == -1) {
                 Teacher profesor = new Teacher(textNombe.getText(), Integer.parseInt(textEdad.getText()), sex, txtCorreo.getText(), passwordField.getText(), textusuario.getText());
                 UserList.agregarProfesor(profesor);
                 JOptionPane.showMessageDialog(null, "Successfully registered teacher!");

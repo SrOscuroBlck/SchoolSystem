@@ -5,53 +5,54 @@ import java.util.Vector;
 
 public class Teacher extends User{
 
-    private ArrayList<String> materias; //Cambiar String por clase materia
-    private ArrayList<String> cursos; //Cambiar String por clase curso
+    private ArrayList<String> subjects; //Cambiar String por clase materia
+    private ArrayList<String> courses; //Cambiar String por clase curso
 
     public Teacher(String nombre, int edad, char genero, String correo, String contraseña, String usuario) {
         super(nombre, edad, genero, correo, contraseña, usuario);
-        this.materias = new ArrayList<>();
-        this.cursos = new ArrayList<>();
+        this.subjects = new ArrayList<>();
+        this.courses = new ArrayList<>();
     }
 
-    public ArrayList<String> getMaterias() {
-        return materias;
+    public ArrayList<String> getSubjects() {
+        return subjects;
     }
 
-    public void setMaterias(ArrayList<String> materias) {
-        this.materias = materias;
+    public void setSubjects(ArrayList<String> subjects) {
+        this.subjects = subjects;
     }
 
-    public ArrayList<String> getCursos() {
-        return cursos;
+    public ArrayList<String> getCourses() {
+        return courses;
     }
 
-    public void setCursos(ArrayList<String> cursos) {
-        this.cursos = cursos;
+    public void setCourses(ArrayList<String> courses) {
+        this.courses = courses;
     }
 
-    public static Vector mostrar(){
+
+    public static Vector getList(){
         return UserList.mostrarProfesor();
     }
 
-    public static int verificarUsuarioNuevo(String usuario){
-        Vector lista = mostrar();
+    public static int verifyNewUser(String user){
+        Vector teachers = getList();
         Teacher obj;
-        for (int i = 0; i < lista.size(); i++){
-            obj = (Teacher) lista.elementAt(i);
-            if(obj.getUsuario().equals(usuario)){
+        for (int i = 0; i < teachers.size(); i++){
+            obj = (Teacher) teachers.elementAt(i);
+            if(obj.getUsuario().equals(user)){
                 return i;
             }
         }
         return -1;
     }
 
-    public static int verificarLogeo(String usuario, String contraseña){
-        Vector lista = mostrar();
+    public static int verifyLogin(String user, String password){
+        Vector teachers = getList();
         Teacher obj;
-        for (int i = 0; i < lista.size(); i++){
-            obj = (Teacher) lista.elementAt(i);
-            if (obj.getUsuario().equalsIgnoreCase(usuario) && obj.getContraseña().equalsIgnoreCase(contraseña)){
+        for (int i = 0; i < teachers.size(); i++){
+            obj = (Teacher) teachers.elementAt(i);
+            if (obj.getUsuario().equalsIgnoreCase(user) && obj.getContraseña().equalsIgnoreCase(password)){
                 return i;
             }
         }

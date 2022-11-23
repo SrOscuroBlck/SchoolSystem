@@ -331,7 +331,7 @@ public class RegistrerStudent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!textusuario.getText().isEmpty() && !passwordField1.getText().isEmpty() && !textNombe.getText().isEmpty() && !textEdad.getText().isEmpty() && (!masculinoCheckBox.isSelected() == false || !femeninoCheckBox.isSelected() == false) && !txtCorreo.getText().isEmpty()){
                     fecha = comboBoxDia.getSelectedItem().toString() + "/" + comboBoxMes.getSelectedItem().toString() + "/" + comboBoxAño.getSelectedItem().toString();
-                    if(Student.verificarUsuarioNuevo(textusuario.getText()) == -1){
+                    if(Student.verifyNewUser(textusuario.getText()) == -1){
                         Student estudiante = new Student(textNombe.getText(), Integer.parseInt(textEdad.getText()), sex, txtCorreo.getText(), passwordField1.getText(), textusuario.getText(), textPadres.getText(), textObservaciones.getText(), fecha);
                         UserList.agregarEstudiante(estudiante);
                         JOptionPane.showMessageDialog(null,"Successfully registered student!");

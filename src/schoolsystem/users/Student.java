@@ -4,50 +4,50 @@ import java.util.Vector;
 
 public class Student extends User{
 
-    private String nombrePadres;
-    private String observaciones;
-    private String fechaIngreso;
+    private String parentsName;
+    private String observations;
+    private String initDate;
 
-    public Student(String nombre, int edad, char genero, String correo, String contraseña, String usuario, String nombrePadres, String observaciones, String fechaIngreso) {
-        super(nombre, edad, genero, correo, contraseña, usuario);
-        this.nombrePadres = nombrePadres;
-        this.observaciones = observaciones;
-        this.fechaIngreso = fechaIngreso;
+    public Student(String name, int age, char gender, String email, String password, String user, String parentsName, String observations, String initDate) {
+        super(name, age, gender, email, password, user);
+        this.parentsName = parentsName;
+        this.observations = observations;
+        this.initDate = initDate;
     }
 
-    public String getNombrePadres() {
-        return nombrePadres;
+    public String getParentsName() {
+        return parentsName;
     }
 
-    public void setNombrePadres(String nombrePadres) {
-        this.nombrePadres = nombrePadres;
+    public void setParentsName(String parentsName) {
+        this.parentsName = parentsName;
     }
 
-    public String getObservaciones() {
-        return observaciones;
+    public String getObservations() {
+        return observations;
     }
 
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
+    public void setObservations(String observations) {
+        this.observations = observations;
     }
 
-    public String getFechaIngreso() {
-        return fechaIngreso;
+    public String getInitDate() {
+        return initDate;
     }
 
-    public void setFechaIngreso(String fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
+    public void setInitDate(String initDate) {
+        this.initDate = initDate;
     }
 
-    public static Vector mostrar(){
+    public static Vector getList(){
         return UserList.mostrarEstudiante();
     }
 
-    public static int verificarUsuarioNuevo(String usuario){
-        Vector lista = mostrar();
+    public static int verifyNewUser(String usuario){
+        Vector teachers = getList();
         Student obj;
-        for (int i = 0; i < lista.size(); i++){
-            obj = (Student)lista.elementAt(i);
+        for (int i = 0; i < teachers.size(); i++){
+            obj = (Student)teachers.elementAt(i);
             if(obj.getUsuario().equals(usuario)){
                 return i;
             }
@@ -56,7 +56,7 @@ public class Student extends User{
     }
 
     public static int verificarLogeo(String usuario, String contraseña){
-        Vector lista = mostrar();
+        Vector lista = getList();
         Student obj;
         for (int i = 0; i < lista.size(); i++){
             obj = (Student)lista.elementAt(i);
