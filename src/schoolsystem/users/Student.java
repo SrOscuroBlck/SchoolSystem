@@ -1,12 +1,15 @@
 package schoolsystem.users;
 
+import java.util.ArrayList;
 import java.util.Vector;
+import schoolsystem.userInterface.TSInterface.StudentInterface.Grade;
 
 public class Student extends User{
 
     private String parentsName;
     private String observations;
     private String initDate;
+    private ArrayList<Grade> grades = new ArrayList<>();
 
     public Student(String name, int age, char gender, String email, String password, String user, String parentsName, String observations, String initDate) {
         super(name, age, gender, email, password, user);
@@ -39,28 +42,38 @@ public class Student extends User{
         this.initDate = initDate;
     }
 
-    public static Vector getList(){
-        return UserList.mostrarEstudiante();
+    public ArrayList<Grade> getGrades() {
+        return grades;
     }
 
-    public static int verifyNewUser(String usuario){
-        Vector teachers = getList();
+    public void setGrades(ArrayList<Grade> grades) {
+        this.grades = grades;
+    }
+    
+    
+
+    public static Vector getList(){
+        return UserList.getStudentList();
+    }
+
+    public static int verifyNewUser(String user){
+        Vector students = getList();
         Student obj;
-        for (int i = 0; i < teachers.size(); i++){
-            obj = (Student)teachers.elementAt(i);
-            if(obj.getUsuario().equals(usuario)){
+        for (int i = 0; i < students.size(); i++){
+            obj = (Student)students.elementAt(i);
+            if(obj.getUser().equals(user)){
                 return i;
             }
         }
         return -1;
     }
 
-    public static int verificarLogeo(String usuario, String contraseña){
-        Vector lista = getList();
+    public static int verifyLogin(String user, String password){
+        Vector students = getList();
         Student obj;
-        for (int i = 0; i < lista.size(); i++){
-            obj = (Student)lista.elementAt(i);
-            if (obj.getUsuario().equalsIgnoreCase(usuario) && obj.getContraseña().equalsIgnoreCase(contraseña)){
+        for (int i = 0; i < students.size(); i++){
+            obj = (Student)students.elementAt(i);
+            if (obj.getUser().equalsIgnoreCase(user) && obj.getPassword().equalsIgnoreCase(password)){
                 return i;
             }
         }

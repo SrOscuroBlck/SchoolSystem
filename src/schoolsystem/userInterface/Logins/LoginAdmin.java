@@ -7,7 +7,6 @@ package schoolsystem.userInterface.Logins;
 import javax.swing.JOptionPane;
 import schoolsystem.userInterface.Pages.PrincipalPage;
 import schoolsystem.userInterface.Registration.RegistrationAdmin;
-import schoolsystem.userInterface.TSInterface.StudentInterface.UserGUI;
 import schoolsystem.users.Admin;
 
 /**
@@ -233,7 +232,7 @@ public class LoginAdmin extends javax.swing.JFrame {
         if (!userField.getText().isEmpty() && !passwordField.getText().isEmpty()) {
             String user = userField.getText();
             String password = passwordField.getText();
-            int logeo = Admin.verificarLogeo(user, password);
+            int logeo = Admin.verifyLogin(user, password);
 
             if (logeo == -1) {
                 JOptionPane.showMessageDialog(null, "Wrong username or password");

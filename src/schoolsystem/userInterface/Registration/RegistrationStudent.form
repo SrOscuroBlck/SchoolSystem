@@ -98,7 +98,7 @@
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="textusuario" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="userField" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -119,11 +119,11 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="textNombe" min="-2" pref="146" max="-2" attributes="0"/>
-                                  <Component id="textEdad" min="-2" pref="146" max="-2" attributes="0"/>
+                                  <Component id="nameField" min="-2" pref="146" max="-2" attributes="0"/>
+                                  <Component id="ageField" min="-2" pref="146" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtCorreo" min="-2" pref="139" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                              <Component id="emailField" min="-2" pref="139" max="-2" attributes="0"/>
+                              <Component id="registerBtn" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -134,14 +134,14 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="textObservaciones" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="observationsField" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="masculinoCheckBox" min="-2" max="-2" attributes="0"/>
+                                  <Component id="maleCheckBox" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="femeninoCheckBox" min="-2" max="-2" attributes="0"/>
+                                  <Component id="femaleCheckBox" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -151,8 +151,8 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="textPadres" alignment="1" pref="134" max="32767" attributes="0"/>
-                                      <Component id="passwordField1" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="parentField" alignment="1" pref="134" max="32767" attributes="0"/>
+                                      <Component id="passwordField" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -160,7 +160,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="125" max="-2" attributes="0"/>
+                          <Component id="loginBtn" min="-2" pref="125" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -173,11 +173,11 @@
                           <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="comboBoxDia" min="-2" max="-2" attributes="0"/>
+                          <Component id="daySelector" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="comboBoxMes" min="-2" max="-2" attributes="0"/>
+                          <Component id="monthSelector" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="comboBoxAño" min="-2" max="-2" attributes="0"/>
+                          <Component id="yearSelector" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -197,37 +197,37 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="textusuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="userField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="passwordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="passwordField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="textNombe" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="textPadres" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="parentField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="textEdad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ageField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="masculinoCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="femeninoCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="maleCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="femaleCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="emailField" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textObservaciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="observationsField" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -236,14 +236,14 @@
                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="13" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="comboBoxAño" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboBoxMes" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboBoxDia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="yearSelector" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="monthSelector" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="daySelector" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="loginBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
@@ -259,7 +259,7 @@
             <Property name="text" type="java.lang.String" value="Username"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textusuario">
+        <Component class="javax.swing.JTextField" name="userField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -278,7 +278,7 @@
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textNombe">
+        <Component class="javax.swing.JTextField" name="nameField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -288,9 +288,9 @@
             <Property name="text" type="java.lang.String" value="Father&apos;s name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textPadres">
+        <Component class="javax.swing.JTextField" name="parentField">
         </Component>
-        <Component class="javax.swing.JPasswordField" name="passwordField1">
+        <Component class="javax.swing.JPasswordField" name="passwordField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -303,9 +303,9 @@
             <Property name="text" type="java.lang.String" value="Age"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textEdad">
+        <Component class="javax.swing.JTextField" name="ageField">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textEdadActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ageFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -316,7 +316,7 @@
             <Property name="text" type="java.lang.String" value="Gender"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="masculinoCheckBox">
+        <Component class="javax.swing.JCheckBox" name="maleCheckBox">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
@@ -328,10 +328,10 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="masculinoCheckBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maleCheckBoxActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="femeninoCheckBox">
+        <Component class="javax.swing.JCheckBox" name="femaleCheckBox">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
@@ -342,7 +342,7 @@
             <Property name="text" type="java.lang.String" value="Female"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="femeninoCheckBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="femaleCheckBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -356,7 +356,7 @@
             <Property name="text" type="java.lang.String" value="E-Mail"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCorreo">
+        <Component class="javax.swing.JTextField" name="emailField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
@@ -366,9 +366,9 @@
             <Property name="text" type="java.lang.String" value="Observations"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textObservaciones">
+        <Component class="javax.swing.JTextField" name="observationsField">
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboBoxDia">
+        <Component class="javax.swing.JComboBox" name="daySelector">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -383,7 +383,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboBoxMes">
+        <Component class="javax.swing.JComboBox" name="monthSelector">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -398,7 +398,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboBoxA&#xf1;o">
+        <Component class="javax.swing.JComboBox" name="yearSelector">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -421,26 +421,26 @@
             <Property name="text" type="java.lang.String" value=" Registration date"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="registerBtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/schoolsystem/multimedia/add-user.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Registrer"/>
+            <Property name="text" type="java.lang.String" value="Register"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="loginBtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/schoolsystem/multimedia/signup (1).png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Sign Up"/>
+            <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginBtnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">

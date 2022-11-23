@@ -2,68 +2,70 @@ package schoolsystem.users;
 
 public class User {
 
-    private String nombre;
-    private int edad;
-    private char genero;
-    private String correo;
-    private String contraseña;
-    private String usuario;
+    private String name;
+    private int age;
+    private char gender;
+    private String email;
+    private String password;
+    private String user;
 
-    public User(String nombre, int edad, char genero, String correo, String contraseña, String usuario) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.genero = genero;
-        this.correo = correo;
-        this.contraseña = contraseña;
-        this.usuario = usuario;
+    public User(String name, int age, char gender, String email, String password, String user) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.password = password;
+        this.user = user;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getEdad() {
-        return edad;
+    public int getAge() {
+        return age;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public char getGenero() {
-        return genero;
+    public char getGender() {
+        return gender;
     }
 
-    public void setGenero(char genero) {
-        this.genero = genero;
+    public void setGender(char gender) {
+        this.gender = gender;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getUser() {
+        return user;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUser(String user) {
+        this.user = user;
     }
+
+    
 }
 

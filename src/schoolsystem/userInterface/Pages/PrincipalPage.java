@@ -4,9 +4,6 @@
  */
 package schoolsystem.userInterface.Pages;
 
-import java.awt.Shape;
-import java.awt.geom.RectangularShape;
-import java.awt.geom.RoundRectangle2D;
 import schoolsystem.userInterface.Logins.LoginAdmin;
 
 /**
@@ -39,8 +36,8 @@ public class PrincipalPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        adminBtn = new javax.swing.JButton();
+        userBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,31 +71,27 @@ public class PrincipalPage extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 22)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("How do you want to continue");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/admin-with-cogwheels.png"))); // NOI18N
-        jButton1.setText("Administrator");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        adminBtn.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        adminBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/admin-with-cogwheels.png"))); // NOI18N
+        adminBtn.setText("Administrator");
+        adminBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                adminBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/user.png"))); // NOI18N
-        jButton2.setText("Users");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        userBtn.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        userBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/user.png"))); // NOI18N
+        userBtn.setText("Users");
+        userBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                userBtnActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Welcome!");
         jLabel3.setToolTipText("");
 
@@ -108,9 +101,9 @@ public class PrincipalPage extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(adminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,8 +124,8 @@ public class PrincipalPage extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(adminBtn)
+                    .addComponent(userBtn))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -152,17 +145,17 @@ public class PrincipalPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void userBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userBtnActionPerformed
         dispose();
         UsersPage usersPage = new UsersPage();
         usersPage.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_userBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
         dispose();
         LoginAdmin loginAdmin = new LoginAdmin();
         loginAdmin.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_adminBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,13 +194,13 @@ public class PrincipalPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton adminBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton userBtn;
     // End of variables declaration//GEN-END:variables
 }

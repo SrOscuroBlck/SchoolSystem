@@ -4,6 +4,8 @@
  */
 package schoolsystem.userInterface.TSInterface.StudentInterface;
 
+import schoolsystem.users.Student;
+
 /**
  *
  * @author gustavocamargo

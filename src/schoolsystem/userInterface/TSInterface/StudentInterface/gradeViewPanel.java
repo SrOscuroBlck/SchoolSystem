@@ -4,16 +4,28 @@
  */
 package schoolsystem.userInterface.TSInterface.StudentInterface;
 
-import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
+import schoolsystem.users.Student;
+import schoolsystem.users.UserList;
 
 /**
  *
  * @author gustavocamargo
  */
 public class gradeViewPanel extends javax.swing.JPanel {
+    
+    public int position;
+    
+    public Vector lista = UserList.getStudentList();
+    
+    
+    public void catchStudentPos(int pos) {
+        position = pos;
+    }
+    
+    public Student student = (Student)lista.elementAt(position);
 
     /**
      * Creates new form gradeViewPanel
@@ -21,11 +33,7 @@ public class gradeViewPanel extends javax.swing.JPanel {
     public gradeViewPanel() {
         initComponents();
         
-        ArrayList<Grade> studentGradeList = new ArrayList<>();
-        studentGradeList.add(0,new Grade(new Student(), new Subject("Math"), 4.0));
-        studentGradeList.add(1,new Grade(new Student(),new Subject("Spanish"),4.5));
-
-        gradeListModel grades = new gradeListModel(studentGradeList);
+        gradeListModel grades = new gradeListModel(student.getGrades());
 
         gradeTable.setModel(grades);
         gradeTable.setAutoCreateRowSorter(true);

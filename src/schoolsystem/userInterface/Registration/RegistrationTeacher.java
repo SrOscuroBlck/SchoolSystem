@@ -4,8 +4,6 @@
  */
 package schoolsystem.userInterface.Registration;
 
-import java.awt.Shape;
-import java.awt.geom.RoundRectangle2D;
 import javax.swing.JOptionPane;
 import schoolsystem.userInterface.Logins.LoginTeacher;
 import schoolsystem.users.UserList;
@@ -15,13 +13,13 @@ import schoolsystem.users.Teacher;
  *
  * @author JUAN MANUEL
  */
-public class RegistrerTeacher extends javax.swing.JFrame {
+public class RegistrationTeacher extends javax.swing.JFrame {
 
-    char sex;
+    char gender;
     /**
      * Creates new form RegistrerTeacher
      */
-    public RegistrerTeacher() {
+    public RegistrationTeacher() {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Registrer Teacher [ School System ]");
@@ -41,20 +39,20 @@ public class RegistrerTeacher extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        textusuario = new javax.swing.JTextField();
+        userField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        textNombe = new javax.swing.JTextField();
+        nameField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        textEdad = new javax.swing.JTextField();
+        adeField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        masculinoCheckBox = new javax.swing.JCheckBox();
-        femeninoCheckBox = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        registrarButton = new javax.swing.JButton();
+        maleSelector = new javax.swing.JCheckBox();
+        femaleSelector = new javax.swing.JCheckBox();
+        loginBtn = new javax.swing.JButton();
+        registerBtn = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
+        emailField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,77 +86,62 @@ public class RegistrerTeacher extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Username");
 
-        textusuario.setBackground(new java.awt.Color(255, 255, 255));
+        userField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userFieldActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Password");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Name");
 
-        textNombe.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel5.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Age");
 
-        textEdad.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel6.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Gender");
 
-        masculinoCheckBox.setBackground(new java.awt.Color(153, 153, 153));
-        masculinoCheckBox.setForeground(new java.awt.Color(0, 0, 0));
-        masculinoCheckBox.setText("Male");
-        masculinoCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        maleSelector.setBackground(new java.awt.Color(153, 153, 153));
+        maleSelector.setText("Male");
+        maleSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                masculinoCheckBoxActionPerformed(evt);
+                maleSelectorActionPerformed(evt);
             }
         });
 
-        femeninoCheckBox.setBackground(new java.awt.Color(153, 153, 153));
-        femeninoCheckBox.setForeground(new java.awt.Color(0, 0, 0));
-        femeninoCheckBox.setText("Female");
-        femeninoCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        femaleSelector.setBackground(new java.awt.Color(153, 153, 153));
+        femaleSelector.setText("Female");
+        femaleSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                femeninoCheckBoxActionPerformed(evt);
+                femaleSelectorActionPerformed(evt);
             }
         });
 
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/signup (1).png"))); // NOI18N
-        jButton1.setText("Sign Up");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loginBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/signup (1).png"))); // NOI18N
+        loginBtn.setText("Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginBtnActionPerformed(evt);
             }
         });
 
-        registrarButton.setForeground(new java.awt.Color(0, 0, 0));
-        registrarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/add-user.png"))); // NOI18N
-        registrarButton.setText("Registrer");
-        registrarButton.addActionListener(new java.awt.event.ActionListener() {
+        registerBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/add-user.png"))); // NOI18N
+        registerBtn.setText("Register");
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarButtonActionPerformed(evt);
+                registerBtnActionPerformed(evt);
             }
         });
-
-        passwordField.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("E-Mail");
 
-        txtCorreo.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel8.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Registrer Teacher");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -174,14 +157,14 @@ public class RegistrerTeacher extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(registrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(textusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                                .addComponent(textNombe))
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(userField, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                                .addComponent(nameField))
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -191,16 +174,16 @@ public class RegistrerTeacher extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(adeField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(masculinoCheckBox)))
+                                        .addComponent(maleSelector)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(femeninoCheckBox)))
+                                .addComponent(femaleSelector)))
                         .addGap(62, 62, 62))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(151, 151, 151)
@@ -214,27 +197,27 @@ public class RegistrerTeacher extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textNombe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(textEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(masculinoCheckBox)
-                    .addComponent(femeninoCheckBox)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(maleSelector)
+                    .addComponent(femaleSelector)
+                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(registrarButton))
+                    .addComponent(loginBtn)
+                    .addComponent(registerBtn))
                 .addGap(23, 23, 23))
         );
 
@@ -254,11 +237,11 @@ public class RegistrerTeacher extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void registrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarButtonActionPerformed
-        if (!textusuario.getText().isEmpty() && !passwordField.getText().isEmpty() && !textNombe.getText().isEmpty() && !textEdad.getText().isEmpty() && (!masculinoCheckBox.isSelected() == false || !femeninoCheckBox.isSelected() == false) && !txtCorreo.getText().isEmpty()) {
-            if (Teacher.verifyNewUser(textusuario.getText()) == -1) {
-                Teacher profesor = new Teacher(textNombe.getText(), Integer.parseInt(textEdad.getText()), sex, txtCorreo.getText(), passwordField.getText(), textusuario.getText());
-                UserList.agregarProfesor(profesor);
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+        if (!userField.getText().isEmpty() && !passwordField.getText().isEmpty() && !nameField.getText().isEmpty() && !adeField.getText().isEmpty() && (!maleSelector.isSelected() == false || !femaleSelector.isSelected() == false) && !emailField.getText().isEmpty()) {
+            if (Teacher.verifyNewUser(userField.getText()) == -1) {
+                Teacher teacher = new Teacher(nameField.getText(), Integer.parseInt(adeField.getText()), gender, emailField.getText(), passwordField.getText(), userField.getText());
+                UserList.addTeacher(teacher);
                 JOptionPane.showMessageDialog(null, "Successfully registered teacher!");
             } else {
                 JOptionPane.showMessageDialog(null, "This user is already registered");
@@ -266,25 +249,29 @@ public class RegistrerTeacher extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Fill in all the fields first");
         }
-    }//GEN-LAST:event_registrarButtonActionPerformed
+    }//GEN-LAST:event_registerBtnActionPerformed
 
-    private void masculinoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masculinoCheckBoxActionPerformed
-        if (masculinoCheckBox.isSelected() == true) {
-            sex = 'M';
+    private void maleSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleSelectorActionPerformed
+        if (maleSelector.isSelected() == true) {
+            gender = 'M';
         }
-    }//GEN-LAST:event_masculinoCheckBoxActionPerformed
+    }//GEN-LAST:event_maleSelectorActionPerformed
 
-    private void femeninoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femeninoCheckBoxActionPerformed
-         if (femeninoCheckBox.isSelected() == true) {
-            sex = 'F';
+    private void femaleSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleSelectorActionPerformed
+         if (femaleSelector.isSelected() == true) {
+            gender = 'F';
         }
-    }//GEN-LAST:event_femeninoCheckBoxActionPerformed
+    }//GEN-LAST:event_femaleSelectorActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         dispose();
         LoginTeacher loginTeacher = new LoginTeacher();
         loginTeacher.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void userFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,28 +290,30 @@ public class RegistrerTeacher extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrerTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrerTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrerTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrerTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistrerTeacher().setVisible(true);
+                new RegistrationTeacher().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackGround;
-    private javax.swing.JCheckBox femeninoCheckBox;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField adeField;
+    private javax.swing.JTextField emailField;
+    private javax.swing.JCheckBox femaleSelector;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -335,12 +324,11 @@ public class RegistrerTeacher extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JCheckBox masculinoCheckBox;
+    private javax.swing.JButton loginBtn;
+    private javax.swing.JCheckBox maleSelector;
+    private javax.swing.JTextField nameField;
     private javax.swing.JPasswordField passwordField;
-    private javax.swing.JButton registrarButton;
-    private javax.swing.JTextField textEdad;
-    private javax.swing.JTextField textNombe;
-    private javax.swing.JTextField textusuario;
-    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JButton registerBtn;
+    private javax.swing.JTextField userField;
     // End of variables declaration//GEN-END:variables
 }

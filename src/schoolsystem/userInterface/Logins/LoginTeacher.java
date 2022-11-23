@@ -7,7 +7,7 @@ package schoolsystem.userInterface.Logins;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import schoolsystem.userInterface.Pages.UsersPage;
-import schoolsystem.userInterface.Registration.RegistrerTeacher;
+import schoolsystem.userInterface.Registration.RegistrationTeacher;
 import schoolsystem.users.Teacher;
 
 /**
@@ -245,7 +245,7 @@ public class LoginTeacher extends javax.swing.JFrame {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         dispose();
-        RegistrerTeacher registrerTeacher = new RegistrerTeacher();
+        RegistrationTeacher registrerTeacher = new RegistrationTeacher();
         registrerTeacher.setVisible(true);
     }//GEN-LAST:event_registerBtnActionPerformed
 

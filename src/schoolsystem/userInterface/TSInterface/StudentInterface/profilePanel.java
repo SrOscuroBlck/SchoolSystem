@@ -19,7 +19,7 @@ public class profilePanel extends javax.swing.JPanel {
     
     public int position;
     
-    public Vector lista = UserList.mostrarEstudiante();
+    public Vector lista = UserList.getStudentList();
     
     
     public void catchStudentPos(int pos) {
@@ -35,18 +35,18 @@ public class profilePanel extends javax.swing.JPanel {
     public profilePanel() {
         initComponents();
         System.out.println("Profile: " + position);
-        nameField.setText(student.getNombre());
-        userField.setText(student.getUsuario());
-        ageField.setText(Integer.toString(student.getEdad()));
-        parentsField.setText(student.getNombrePadres()); 
+        nameField.setText(student.getName());
+        userField.setText(student.getUser());
+        ageField.setText(Integer.toString(student.getAge()));
+        parentsField.setText(student.getParentsName()); 
         
         
-        if (student.getGenero() == 'M') {
+        if (student.getGender() == 'M') {
             genderBox.setSelectedIndex(0);
         }else {
             genderBox.setSelectedIndex(1);
         }
-        observationsArea.setText(student.getObservaciones());
+        observationsArea.setText(student.getObservations());
     }
     
     
@@ -247,8 +247,7 @@ public class profilePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_parentsFieldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        student.setGenero(genderBox.getSelectedItem().toString().charAt(0));
-        student.setObservaciones(observationsArea.getText());
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -4,8 +4,6 @@
  */
 package schoolsystem.userInterface.Registration;
 
-import java.awt.Shape;
-import java.awt.geom.RoundRectangle2D;
 import javax.swing.JOptionPane;
 import schoolsystem.userInterface.Logins.LoginStudent;
 import schoolsystem.users.Student;
@@ -15,19 +13,19 @@ import schoolsystem.users.UserList;
  *
  * @author JUAN MANUEL
  */
-public class RegistrerStudent extends javax.swing.JFrame {
-    char sex;
-    String fecha;
+public class RegistrationStudent extends javax.swing.JFrame {
+    char gender;
+    String date;
     /**
      * Creates new form Registrer
      */
-    public RegistrerStudent() {
+    public RegistrationStudent() {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Registrer Student [ School System ]");
-        GenerarDias();
-        GenerarMes();
-        Anios();
+        generateDays();
+        generateMonths();
+        generateYears();
     }
 
     /**
@@ -43,28 +41,28 @@ public class RegistrerStudent extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        textusuario = new javax.swing.JTextField();
+        userField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        textNombe = new javax.swing.JTextField();
+        nameField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        textPadres = new javax.swing.JTextField();
-        passwordField1 = new javax.swing.JPasswordField();
+        parentField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        textEdad = new javax.swing.JTextField();
+        ageField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        masculinoCheckBox = new javax.swing.JCheckBox();
-        femeninoCheckBox = new javax.swing.JCheckBox();
+        maleCheckBox = new javax.swing.JCheckBox();
+        femaleCheckBox = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
+        emailField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        textObservaciones = new javax.swing.JTextField();
-        comboBoxDia = new javax.swing.JComboBox<>();
-        comboBoxMes = new javax.swing.JComboBox<>();
-        comboBoxAño = new javax.swing.JComboBox<>();
+        observationsField = new javax.swing.JTextField();
+        daySelector = new javax.swing.JComboBox<>();
+        monthSelector = new javax.swing.JComboBox<>();
+        yearSelector = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        registerBtn = new javax.swing.JButton();
+        loginBtn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,31 +107,31 @@ public class RegistrerStudent extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel6.setText("Age");
 
-        textEdad.addActionListener(new java.awt.event.ActionListener() {
+        ageField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textEdadActionPerformed(evt);
+                ageFieldActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel7.setText("Gender");
 
-        masculinoCheckBox.setBackground(new java.awt.Color(153, 153, 153));
-        masculinoCheckBox.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
-        masculinoCheckBox.setText("Male");
-        masculinoCheckBox.setToolTipText("");
-        masculinoCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        maleCheckBox.setBackground(new java.awt.Color(153, 153, 153));
+        maleCheckBox.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        maleCheckBox.setText("Male");
+        maleCheckBox.setToolTipText("");
+        maleCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                masculinoCheckBoxActionPerformed(evt);
+                maleCheckBoxActionPerformed(evt);
             }
         });
 
-        femeninoCheckBox.setBackground(new java.awt.Color(153, 153, 153));
-        femeninoCheckBox.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
-        femeninoCheckBox.setText("Female");
-        femeninoCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        femaleCheckBox.setBackground(new java.awt.Color(153, 153, 153));
+        femaleCheckBox.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        femaleCheckBox.setText("Female");
+        femaleCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                femeninoCheckBoxActionPerformed(evt);
+                femaleCheckBoxActionPerformed(evt);
             }
         });
 
@@ -144,31 +142,31 @@ public class RegistrerStudent extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel9.setText("Observations");
 
-        comboBoxDia.setForeground(new java.awt.Color(255, 255, 255));
-        comboBoxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day" }));
+        daySelector.setForeground(new java.awt.Color(255, 255, 255));
+        daySelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day" }));
 
-        comboBoxMes.setForeground(new java.awt.Color(255, 255, 255));
-        comboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month" }));
+        monthSelector.setForeground(new java.awt.Color(255, 255, 255));
+        monthSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month" }));
 
-        comboBoxAño.setForeground(new java.awt.Color(255, 255, 255));
-        comboBoxAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year" }));
+        yearSelector.setForeground(new java.awt.Color(255, 255, 255));
+        yearSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year" }));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel10.setText(" Registration date");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/add-user.png"))); // NOI18N
-        jButton1.setText("Registrer");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        registerBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/add-user.png"))); // NOI18N
+        registerBtn.setText("Register");
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registerBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/signup (1).png"))); // NOI18N
-        jButton2.setText("Sign Up");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        loginBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/signup (1).png"))); // NOI18N
+        loginBtn.setText("Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                loginBtnActionPerformed(evt);
             }
         });
 
@@ -185,7 +183,7 @@ public class RegistrerStudent extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,10 +199,10 @@ public class RegistrerStudent extends javax.swing.JFrame {
                                 .addGap(13, 13, 13)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(textNombe, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
@@ -212,13 +210,13 @@ public class RegistrerStudent extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(observationsField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(masculinoCheckBox)
+                                .addComponent(maleCheckBox)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(femeninoCheckBox)
+                                .addComponent(femaleCheckBox)
                                 .addGap(6, 6, 6))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -226,12 +224,12 @@ public class RegistrerStudent extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(textPadres, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                                    .addComponent(passwordField1))))
+                                    .addComponent(parentField, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                    .addComponent(passwordField))))
                         .addGap(21, 21, 21))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -240,11 +238,11 @@ public class RegistrerStudent extends javax.swing.JFrame {
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(140, 140, 140))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(comboBoxDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(daySelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(monthSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(yearSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(168, 168, 168))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(192, 192, 192)
@@ -259,44 +257,44 @@ public class RegistrerStudent extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(textusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(textNombe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(textPadres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(parentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(textEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(masculinoCheckBox)
-                    .addComponent(femeninoCheckBox))
+                    .addComponent(maleCheckBox)
+                    .addComponent(femaleCheckBox))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(observationsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBoxAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(yearSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(monthSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(daySelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(registerBtn)
+                    .addComponent(loginBtn))
                 .addGap(16, 16, 16))
         );
 
@@ -322,18 +320,18 @@ public class RegistrerStudent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void masculinoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masculinoCheckBoxActionPerformed
-        if (masculinoCheckBox.isSelected() == true) {
-            sex = 'M';
+    private void maleCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleCheckBoxActionPerformed
+        if (maleCheckBox.isSelected() == true) {
+            gender = 'M';
         }
-    }//GEN-LAST:event_masculinoCheckBoxActionPerformed
+    }//GEN-LAST:event_maleCheckBoxActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(!textusuario.getText().isEmpty() && !passwordField1.getText().isEmpty() && !textNombe.getText().isEmpty() && !textEdad.getText().isEmpty() && (!masculinoCheckBox.isSelected() == false || !femeninoCheckBox.isSelected() == false) && !txtCorreo.getText().isEmpty()){
-                    fecha = comboBoxDia.getSelectedItem().toString() + "/" + comboBoxMes.getSelectedItem().toString() + "/" + comboBoxAño.getSelectedItem().toString();
-                    if(Student.verifyNewUser(textusuario.getText()) == -1){
-                        Student estudiante = new Student(textNombe.getText(), Integer.parseInt(textEdad.getText()), sex, txtCorreo.getText(), passwordField1.getText(), textusuario.getText(), textPadres.getText(), textObservaciones.getText(), fecha);
-                        UserList.agregarEstudiante(estudiante);
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+        if(!userField.getText().isEmpty() && !passwordField.getText().isEmpty() && !nameField.getText().isEmpty() && !ageField.getText().isEmpty() && (!maleCheckBox.isSelected() == false || !femaleCheckBox.isSelected() == false) && !emailField.getText().isEmpty()){
+                    date = daySelector.getSelectedItem().toString() + "/" + monthSelector.getSelectedItem().toString() + "/" + yearSelector.getSelectedItem().toString();
+                    if(Student.verifyNewUser(userField.getText()) == -1){
+                        Student student = new Student(nameField.getText(), Integer.parseInt(ageField.getText()), gender, emailField.getText(), passwordField.getText(), userField.getText(), parentField.getText(), observationsField.getText(), date);
+                        UserList.addStudent(student);
                         JOptionPane.showMessageDialog(null,"Successfully registered student!");
                     }
                     else{
@@ -342,23 +340,23 @@ public class RegistrerStudent extends javax.swing.JFrame {
                 }else{
                     JOptionPane.showMessageDialog(null,"Fill in all the fields first");
                 }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_registerBtnActionPerformed
 
-    private void femeninoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femeninoCheckBoxActionPerformed
-        if (femeninoCheckBox.isSelected() == true) {
-            sex = 'F';
+    private void femaleCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleCheckBoxActionPerformed
+        if (femaleCheckBox.isSelected() == true) {
+            gender = 'F';
         }
-    }//GEN-LAST:event_femeninoCheckBoxActionPerformed
+    }//GEN-LAST:event_femaleCheckBoxActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         dispose();
         LoginStudent loginStudent = new LoginStudent();
         loginStudent.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_loginBtnActionPerformed
 
-    private void textEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEdadActionPerformed
+    private void ageFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textEdadActionPerformed
+    }//GEN-LAST:event_ageFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,51 +375,55 @@ public class RegistrerStudent extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrerStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrerStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrerStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrerStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistrerStudent().setVisible(true);
+                new RegistrationStudent().setVisible(true);
             }
         });
     }
     
-    public void GenerarDias(){
+    public void generateDays(){
         for (int i = 1; i <= 31; i++) {
-            comboBoxDia.addItem(String.valueOf(i));
+            daySelector.addItem(String.valueOf(i));
         }
     }
     String  mes[]={"January","February","March","April","May","June",
             "July","August","September","October","November","December"};
-    public void GenerarMes(){
+    public void generateMonths(){
         for(int i=0;i<12;i++){
-            comboBoxMes.addItem(mes[i]);
+            monthSelector.addItem(mes[i]);
         }
     }
-    public void Anios(){
+    public void generateYears(){
         for (int i = 2000; i <= 2023; i++) {
-            comboBoxAño.addItem(String.valueOf(i));
+            yearSelector.addItem(String.valueOf(i));
             
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> comboBoxAño;
-    private javax.swing.JComboBox<String> comboBoxDia;
-    private javax.swing.JComboBox<String> comboBoxMes;
-    private javax.swing.JCheckBox femeninoCheckBox;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField ageField;
+    private javax.swing.JComboBox<String> daySelector;
+    private javax.swing.JTextField emailField;
+    private javax.swing.JCheckBox femaleCheckBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -435,13 +437,15 @@ public class RegistrerStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JCheckBox masculinoCheckBox;
-    private javax.swing.JPasswordField passwordField1;
-    private javax.swing.JTextField textEdad;
-    private javax.swing.JTextField textNombe;
-    private javax.swing.JTextField textObservaciones;
-    private javax.swing.JTextField textPadres;
-    private javax.swing.JTextField textusuario;
-    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JButton loginBtn;
+    private javax.swing.JCheckBox maleCheckBox;
+    private javax.swing.JComboBox<String> monthSelector;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JTextField observationsField;
+    private javax.swing.JTextField parentField;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton registerBtn;
+    private javax.swing.JTextField userField;
+    private javax.swing.JComboBox<String> yearSelector;
     // End of variables declaration//GEN-END:variables
 }

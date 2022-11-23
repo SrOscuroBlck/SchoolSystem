@@ -7,7 +7,7 @@ package schoolsystem.userInterface.Logins;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import schoolsystem.userInterface.Pages.UsersPage;
-import schoolsystem.userInterface.Registration.RegistrerStudent;
+import schoolsystem.userInterface.Registration.RegistrationStudent;
 import schoolsystem.users.Student;
 import schoolsystem.userInterface.TSInterface.StudentInterface.UserGUI;
 
@@ -238,7 +238,7 @@ public class LoginStudent extends javax.swing.JFrame {
         if (!userField.getText().isEmpty() && !passwordField.getText().isEmpty()) {
             String user = userField.getText();
             String password = passwordField.getText();
-            loginKey = Student.verificarLogeo(user, password);
+            loginKey = Student.verifyLogin(user, password);
 
             if (loginKey == -1) {
                 JOptionPane.showMessageDialog(null, "Wrong username or password");
@@ -255,7 +255,7 @@ public class LoginStudent extends javax.swing.JFrame {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         dispose();
-        RegistrerStudent registrerStudent = new RegistrerStudent();
+        RegistrationStudent registrerStudent = new RegistrationStudent();
         registrerStudent.setVisible(true);
     }//GEN-LAST:event_registerBtnActionPerformed
 

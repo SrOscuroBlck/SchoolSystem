@@ -27,28 +27,28 @@ public class Admin{
         this.password = password;
     }
 
-    public static Vector mostrar(){
-        return UserList.mostrarAdmin();
+    public static Vector getList(){
+        return UserList.getAdminList();
     }
 
-    public static int verificarUsuarioNuevo(String usuario){
-        Vector lista = mostrar();
+    public static int verifyNewUser(String user){
+        Vector admins = getList();
         Admin obj;
-        for (int i = 0; i < lista.size(); i++){
-            obj = (Admin) lista.elementAt(i);
-            if(obj.getUsername().equals(usuario)){
+        for (int i = 0; i < admins.size(); i++){
+            obj = (Admin) admins.elementAt(i);
+            if(obj.getUsername().equals(user)){
                 return i;
             }
         }
         return -1;
     }
 
-    public static int verificarLogeo(String usuario, String contraseña){
-        Vector lista = mostrar();
+    public static int verifyLogin(String user, String password){
+        Vector admins = getList();
         Admin obj;
-        for (int i = 0; i < lista.size(); i++){
-            obj = (Admin) lista.elementAt(i);
-            if (obj.getUsername().equalsIgnoreCase(usuario) && obj.getPassword().equalsIgnoreCase(contraseña)){
+        for (int i = 0; i < admins.size(); i++){
+            obj = (Admin) admins.elementAt(i);
+            if (obj.getUsername().equalsIgnoreCase(user) && obj.getPassword().equalsIgnoreCase(password)){
                 return i;
             }
         }

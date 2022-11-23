@@ -32,7 +32,7 @@ public class Teacher extends User{
 
 
     public static Vector getList(){
-        return UserList.mostrarProfesor();
+        return UserList.getTeacherList();
     }
 
     public static int verifyNewUser(String user){
@@ -40,7 +40,7 @@ public class Teacher extends User{
         Teacher obj;
         for (int i = 0; i < teachers.size(); i++){
             obj = (Teacher) teachers.elementAt(i);
-            if(obj.getUsuario().equals(user)){
+            if(obj.getUser().equals(user)){
                 return i;
             }
         }
@@ -52,7 +52,7 @@ public class Teacher extends User{
         Teacher obj;
         for (int i = 0; i < teachers.size(); i++){
             obj = (Teacher) teachers.elementAt(i);
-            if (obj.getUsuario().equalsIgnoreCase(user) && obj.getContraseña().equalsIgnoreCase(password)){
+            if (obj.getUser().equalsIgnoreCase(user) && obj.getPassword().equalsIgnoreCase(password)){
                 return i;
             }
         }
