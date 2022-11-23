@@ -9,7 +9,7 @@ import javax.swing.UIManager;
 import schoolsystem.userInterface.Pages.UsersPage;
 import schoolsystem.userInterface.Registration.RegistrerStudent;
 import schoolsystem.users.Student;
-import schoolsystem.userInterface.TSInterface.UserGUI;
+import schoolsystem.userInterface.TSInterface.StudentInterface.UserGUI;
 
 
 /**

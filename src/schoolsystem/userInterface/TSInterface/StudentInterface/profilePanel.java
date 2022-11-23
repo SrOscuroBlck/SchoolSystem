@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package schoolsystem.userInterface.TSInterface;
+package schoolsystem.userInterface.TSInterface.StudentInterface;
 
 import java.util.Vector;
 import schoolsystem.users.Student;

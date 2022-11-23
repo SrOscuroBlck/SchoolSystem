@@ -7,7 +7,7 @@ package schoolsystem.userInterface.Logins;
 import javax.swing.JOptionPane;
 import schoolsystem.userInterface.Pages.PrincipalPage;
 import schoolsystem.userInterface.Registration.RegistrationAdmin;
-import schoolsystem.userInterface.TSInterface.UserGUI;
+import schoolsystem.userInterface.TSInterface.StudentInterface.UserGUI;
 import schoolsystem.users.Admin;
 
 /**
