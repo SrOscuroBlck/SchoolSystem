@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package schoolsystem.userInterface.TSInterface.StudentInterface;
+package schoolsystem.userInterface.TSInterface.TeacherInterface;
 
 import java.awt.BorderLayout;
-import schoolsystem.users.Student;
 
 
 /**
@@ -16,9 +15,8 @@ public class UserGUI extends javax.swing.JFrame {
     
     public int position;
     
-    public void catchStudentPos(int pos) {
+    public void catchTeacherPos(int pos) {
         position = pos;
-        System.out.println("UserGUI: " + position);
     }
 
     /**
@@ -53,7 +51,7 @@ public class UserGUI extends javax.swing.JFrame {
 
         gradesButton.setBackground(new java.awt.Color(0, 0, 0));
         gradesButton.setForeground(new java.awt.Color(255, 153, 0));
-        gradesButton.setText("View grades");
+        gradesButton.setText("Set Grades");
         gradesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gradesButtonActionPerformed(evt);
@@ -141,14 +139,10 @@ public class UserGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void gradesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradesButtonActionPerformed
-       gradeViewPanel grades = new gradeViewPanel();
-       grades.setSize(640,370);
-       grades.setLocation(0,0);
        
-       System.out.println(position);
        
        principalPanel.removeAll();
-       principalPanel.add(grades,BorderLayout.CENTER);
+//       principalPanel.add(grades,BorderLayout.CENTER);
        principalPanel.revalidate();
        principalPanel.repaint();
        
@@ -157,16 +151,13 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
         profilePanel profile = new profilePanel();
-
-        profile.setSize(640,370);
-        profile.setLocation(0,0);
         
         principalPanel.removeAll();
         principalPanel.add(profile,BorderLayout.CENTER);
         principalPanel.revalidate();
         principalPanel.repaint();
         
-        profile.catchStudentPos(position);
+        profile.catchTeacherPos(position);
         
     }//GEN-LAST:event_profileButtonActionPerformed
 
@@ -179,8 +170,8 @@ public class UserGUI extends javax.swing.JFrame {
         principalPanel.revalidate();
         principalPanel.repaint();
         
-        profile.catchStudentPos(position);
-    }
+        profile.catchTeacherPos(position);
+    };
     
     /**
      * @param args the command line arguments
@@ -207,6 +198,7 @@ public class UserGUI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(UserGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
