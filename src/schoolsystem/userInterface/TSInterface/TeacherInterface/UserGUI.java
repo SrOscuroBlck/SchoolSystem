@@ -25,6 +25,7 @@ public class UserGUI extends javax.swing.JFrame {
      */
     public UserGUI() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -71,7 +72,7 @@ public class UserGUI extends javax.swing.JFrame {
 
         outButton.setBackground(new java.awt.Color(0, 0, 0));
         outButton.setForeground(new java.awt.Color(255, 153, 0));
-        outButton.setText("View Profile");
+        outButton.setText("Log Out");
         outButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outButtonActionPerformed(evt);

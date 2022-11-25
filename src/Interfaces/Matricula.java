@@ -4,12 +4,14 @@
  */
 package Interfaces;
 
+import Modelos.TeacherM;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import schoolsystem.users.Teacher;
@@ -20,63 +22,60 @@ import schoolsystem.users.UserList;
  * @author maria
  */
 public class Matricula extends javax.swing.JPanel {
-    
+
     DefaultComboBoxModel modelG = new DefaultComboBoxModel();
     DefaultComboBoxModel modelS = new DefaultComboBoxModel();
     DefaultComboBoxModel modelT = new DefaultComboBoxModel();
 
     public Vector lista = UserList.getTeacherList();
     public Teacher teacher;
-    
+
     public Matricula() {
-        loadTeacher(teachers);
         loadGrades(courses);
         loadSubjects(subjects);
+        loadTeacher(teachers);
         initComponents();
     }
-    
-    private void loadTeacher(JComboBox teachers){
-        
+
+    private void loadTeacher(JComboBox teachers) {
+
         try {
+            for (int i = 0; i < lista.size(); i++) {
+                teacher = (Teacher) lista.elementAt(i);
+                if (teacher.getName() != null) {
+                    modelT.addElement(new TeacherM(teacher.getName(),teacher.getUser()));
+                } else {
+                    modelT.addElement(i);
+                }
+            }
             
         } catch (NullPointerException n) {
-            JOptionPane.showMessageDialog(null, "ERROR","",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERROR", "", JOptionPane.ERROR_MESSAGE);
         }
-        
-        for (int i = 0; i < lista.size(); i++) {
-            teacher = (Teacher)lista.elementAt(i);
-            if(teacher.getName()!= null){
-                modelT.addElement(teacher.getName());
-            }else{
-                modelT.addElement(i);
-            }
-        }
-        
-        teachers.setModel(modelT);
-        
+
     }
-    
-    private void loadGrades(JComboBox grades){
+
+    private void loadGrades(JComboBox grades) {
         File file = new File("src/Files/Grades.txt");
-        
+
         try {
             BufferedReader entry = new BufferedReader(new FileReader(file));
             String reading = entry.readLine();
-            while(reading != null){
+            while (reading != null) {
                 modelG.addElement(reading);
                 reading = entry.readLine();
             }
         } catch (IOException e) {
         }
     }
-    
-    private void loadSubjects(JComboBox grades){
+
+    private void loadSubjects(JComboBox grades) {
         File file = new File("src/Files/Matters.txt");
-        
+
         try {
             BufferedReader entry = new BufferedReader(new FileReader(file));
             String reading = entry.readLine();
-            while(reading != null){
+            while (reading != null) {
                 modelS.addElement(reading);
                 reading = entry.readLine();
             }
@@ -116,6 +115,11 @@ public class Matricula extends javax.swing.JPanel {
 
         btnCrear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCrear.setText("Create");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel4.setText("Create Matricule");
@@ -167,6 +171,10 @@ public class Matricula extends javax.swing.JPanel {
                 .addContainerGap(126, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,6 +7,7 @@ package Interfaces;
 import UserInterfaces.CreateG;
 import UserInterfaces.CreateM;
 import java.awt.BorderLayout;
+import schoolsystem.userInterface.Pages.PrincipalPage;
 
 
 /**
@@ -62,6 +63,11 @@ public class GUIAdmin extends javax.swing.JFrame {
         });
 
         jButton4.setText("Log Out");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -180,6 +186,12 @@ public class GUIAdmin extends javax.swing.JFrame {
         principal.revalidate();
         principal.repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        PrincipalPage pp = new PrincipalPage();
+        this.setVisible(false);
+        pp.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

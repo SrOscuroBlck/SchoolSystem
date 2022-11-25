@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import schoolsystem.userInterface.Pages.UsersPage;
 import schoolsystem.userInterface.Registration.RegistrationTeacher;
+import schoolsystem.userInterface.TSInterface.TeacherInterface.UserGUI;
 import schoolsystem.users.Teacher;
 
 /**
@@ -237,6 +238,9 @@ public class LoginTeacher extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Wrong username or password");
             } else {
                 JOptionPane.showMessageDialog(null, "Login successful!");
+                UserGUI tea = new UserGUI();
+                this.setVisible(false);
+                tea.setVisible(true);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Fill in all the fields first");
