@@ -4,6 +4,7 @@
  */
 package UserInterfaces;
 
+import List.CourAndSubjList;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,12 +18,12 @@ import javax.swing.JOptionPane;
  *
  * @author dillan
  */
-public class CreateG extends javax.swing.JPanel {
+public class CreateCourses extends javax.swing.JPanel {
 
     /**
      * Creates new form CreateG
      */
-    public CreateG() {
+    public CreateCourses() {
         initComponents();
     }
 
@@ -132,54 +133,55 @@ public class CreateG extends javax.swing.JPanel {
 
         String gradeL = GradeList.getSelectedItem().toString();
         String classR = ClassroomList.getSelectedItem().toString();
-        Grade grade = new Grade(gradeL + classR);
-
-        if (!checkCourses(grade)) {
-            JOptionPane.showMessageDialog(null, "The course already exists.");
-        } else {
-            writeFile(grade);
+        String name = gradeL + classR;
+        
+        if(Course.verifyNewCourse(name) == -1){
+            Course course = new Course(name);
+            CourAndSubjList.addCourse(course);
             JOptionPane.showMessageDialog(null, "Course created successfully");
+        } else {
+            JOptionPane.showMessageDialog(null, "The course already exists.");
         }
 
     }//GEN-LAST:event_CreateGradeButtonActionPerformed
 
-    public void writeFile(Grade grade){
-        File file = new File("src/Files/Grades.txt");
-
-        try {
-            PrintWriter exit =  new PrintWriter(new FileWriter(file, true));
-            exit.println(grade.getNameGrade());
-            exit.close();
-        } catch (FileNotFoundException ex){
-            ex.printStackTrace(System.out);
-        } catch (IOException ex) {
-            ex.printStackTrace(System.out);
-        }
-
-    }
-    
-    public boolean checkCourses(Grade grade){
-        File file = new File("src/Files/Grades.txt");
-
-        boolean cheak = true;
-
-        try {
-            BufferedReader entry = new BufferedReader(new FileReader(file));
-            String reading = entry.readLine();
-            while (reading != null){
-                if (reading.equals(grade.getNameGrade())){
-                    cheak = false;
-                }
-                reading = entry.readLine();
-            }
-            entry.close();
-        } catch (FileNotFoundException ex){
-            ex.printStackTrace();
-        } catch (IOException ex){
-            ex.printStackTrace();
-        }
-        return cheak;
-    }
+//    public void writeFile(Course grade){
+//        File file = new File("src/Files/Grades.txt");
+//
+//        try {
+//            PrintWriter exit =  new PrintWriter(new FileWriter(file, true));
+//            exit.println(grade.getNameGrade());
+//            exit.close();
+//        } catch (FileNotFoundException ex){
+//            ex.printStackTrace(System.out);
+//        } catch (IOException ex) {
+//            ex.printStackTrace(System.out);
+//        }
+//
+//    }
+//    
+//    public boolean checkCourses(Course grade){
+//        File file = new File("src/Files/Grades.txt");
+//
+//        boolean cheak = true;
+//
+//        try {
+//            BufferedReader entry = new BufferedReader(new FileReader(file));
+//            String reading = entry.readLine();
+//            while (reading != null){
+//                if (reading.equals(grade.getNameGrade())){
+//                    cheak = false;
+//                }
+//                reading = entry.readLine();
+//            }
+//            entry.close();
+//        } catch (FileNotFoundException ex){
+//            ex.printStackTrace();
+//        } catch (IOException ex){
+//            ex.printStackTrace();
+//        }
+//        return cheak;
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;

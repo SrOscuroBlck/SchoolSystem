@@ -4,16 +4,16 @@
  */
 package Interfaces;
 
+import List.CourAndSubjList;
+import Modelos.CourseM;
+import Modelos.SubjectM;
 import Modelos.TeacherM;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import UserInterfaces.Course;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import UserInterfaces.Subject;
 import schoolsystem.users.Teacher;
 import schoolsystem.users.UserList;
 
@@ -27,11 +27,19 @@ public class Matricula extends javax.swing.JPanel {
     DefaultComboBoxModel modelS = new DefaultComboBoxModel();
     DefaultComboBoxModel modelT = new DefaultComboBoxModel();
 
-    public Vector lista = UserList.getTeacherList();
+    public Vector listaT = UserList.getTeacherList();
     public Teacher teacher;
+    
+    public Vector listaC = CourAndSubjList.getCourseList();
+    public Course course;
+    
+    public Vector listaS = CourAndSubjList.getSubjectList();
+    public Subject subject;
+    
+    
 
     public Matricula() {
-        loadGrades(courses);
+        loadCourse(courses);
         loadSubjects(subjects);
         loadTeacher(teachers);
         initComponents();
@@ -40,8 +48,8 @@ public class Matricula extends javax.swing.JPanel {
     private void loadTeacher(JComboBox teachers) {
 
         try {
-            for (int i = 0; i < lista.size(); i++) {
-                teacher = (Teacher) lista.elementAt(i);
+            for (int i = 0; i < listaT.size(); i++) {
+                teacher = (Teacher) listaT.elementAt(i);
                 if (teacher.getName() != null) {
                     modelT.addElement(new TeacherM(teacher.getName(),teacher.getUser()));
                 } else {
@@ -55,31 +63,35 @@ public class Matricula extends javax.swing.JPanel {
 
     }
 
-    private void loadGrades(JComboBox grades) {
-        File file = new File("src/Files/Grades.txt");
-
+    private void loadCourse(JComboBox courses) {
         try {
-            BufferedReader entry = new BufferedReader(new FileReader(file));
-            String reading = entry.readLine();
-            while (reading != null) {
-                modelG.addElement(reading);
-                reading = entry.readLine();
+            for (int i = 0; i < listaC.size(); i++) {
+                course = (Course) listaC.elementAt(i);
+                if (course.getNameCourse() != null) {
+                    modelG.addElement(new CourseM(course.getNameCourse()));
+                } else {
+                    modelG.addElement(i);
+                }
             }
-        } catch (IOException e) {
+            
+        } catch (NullPointerException n) {
+            JOptionPane.showMessageDialog(null, "ERROR", "", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    private void loadSubjects(JComboBox grades) {
-        File file = new File("src/Files/Matters.txt");
-
+    private void loadSubjects(JComboBox subjects) {
         try {
-            BufferedReader entry = new BufferedReader(new FileReader(file));
-            String reading = entry.readLine();
-            while (reading != null) {
-                modelS.addElement(reading);
-                reading = entry.readLine();
+            for (int i = 0; i < listaS.size(); i++) {
+                subject = (Subject) listaS.elementAt(i);
+                if (subject.getNameSubject() != null) {
+                    modelS.addElement(new SubjectM(subject.getNameSubject()));
+                } else {
+                    modelS.addElement(i);
+                }
             }
-        } catch (IOException e) {
+            
+        } catch (NullPointerException n) {
+            JOptionPane.showMessageDialog(null, "ERROR", "", JOptionPane.ERROR_MESSAGE);
         }
     }
 

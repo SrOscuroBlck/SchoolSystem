@@ -4,8 +4,8 @@
  */
 package Interfaces;
 
-import UserInterfaces.CreateG;
-import UserInterfaces.CreateM;
+import UserInterfaces.CreateCourses;
+import UserInterfaces.CreateSubjects;
 import java.awt.BorderLayout;
 import schoolsystem.userInterface.Pages.PrincipalPage;
 
@@ -164,7 +164,7 @@ public class GUIAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        CreateM subject = new CreateM();
+        CreateSubjects subject = new CreateSubjects();
         
         subject.setSize(840,480);
         subject.setLocation(0,0);
@@ -176,7 +176,7 @@ public class GUIAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CreateG courses = new CreateG();
+        CreateCourses courses = new CreateCourses();
         
         courses.setSize(840,480);
         courses.setLocation(0,0);

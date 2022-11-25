@@ -4,25 +4,20 @@
  */
 package UserInterfaces;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import List.CourAndSubjList;
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author dillan
  */
-public class CreateM extends javax.swing.JPanel {
+public class CreateSubjects extends javax.swing.JPanel {
 
     /**
      * Creates new form CreateM
      */
-    public CreateM() {
+    public CreateSubjects() {
         initComponents();
     }
 
@@ -113,55 +108,56 @@ public class CreateM extends javax.swing.JPanel {
     private void CreateMatterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateMatterButtonActionPerformed
 
         String name = MattersList.getSelectedItem().toString();
-        Matter matter = new Matter(name);
-
-        if (!checkCourses(matter)) {
-            JOptionPane.showMessageDialog(null, "The course already exists.");
-        } else {
-            writeFile(matter);
+        
+        if(Subject.verifyNewSubject(name) == -1){
+            Subject subject = new Subject(name);
+            CourAndSubjList.addSubject(subject);
             JOptionPane.showMessageDialog(null, "Course created successfully");
+        } else {
+            JOptionPane.showMessageDialog(null, "The course already exists.");
+
         }
 
     }//GEN-LAST:event_CreateMatterButtonActionPerformed
 
-    public void writeFile(Matter matter){
-        File file = new File("src/Files/Matters.txt");
-
-        try {
-            PrintWriter exit =  new PrintWriter(new FileWriter(file, true));
-            exit.println(matter.getNameMater());
-            exit.close();
-        } catch (FileNotFoundException ex){
-            ex.printStackTrace(System.out);
-        } catch (IOException ex) {
-            ex.printStackTrace(System.out);
-        }
-
-    }
-    
-    public boolean checkCourses(Matter matter){
-        File file = new File("src/Files/Matters.txt");
-
-        boolean cheak = true;
-
-        try {
-            BufferedReader entry = new BufferedReader(new FileReader(file));
-            String reading = entry.readLine();
-            while (reading != null){
-                if (reading.equals(matter.getNameMater())){
-                    cheak = false;
-                }
-                reading = entry.readLine();
-            }
-            entry.close();
-        } catch (FileNotFoundException ex){
-            ex.printStackTrace();
-        } catch (IOException ex){
-            ex.printStackTrace();
-        }
-        return cheak;
-        
-    }
+//    public void writeFile(Subject matter){
+//        File file = new File("src/Files/Matters.txt");
+//
+//        try {
+//            PrintWriter exit =  new PrintWriter(new FileWriter(file, true));
+//            exit.println(matter.getNameMater());
+//            exit.close();
+//        } catch (FileNotFoundException ex){
+//            ex.printStackTrace(System.out);
+//        } catch (IOException ex) {
+//            ex.printStackTrace(System.out);
+//        }
+//
+//    }
+//    
+//    public boolean checkCourses(Subject matter){
+//        File file = new File("src/Files/Matters.txt");
+//
+//        boolean cheak = true;
+//
+//        try {
+//            BufferedReader entry = new BufferedReader(new FileReader(file));
+//            String reading = entry.readLine();
+//            while (reading != null){
+//                if (reading.equals(matter.getNameMater())){
+//                    cheak = false;
+//                }
+//                reading = entry.readLine();
+//            }
+//            entry.close();
+//        } catch (FileNotFoundException ex){
+//            ex.printStackTrace();
+//        } catch (IOException ex){
+//            ex.printStackTrace();
+//        }
+//        return cheak;
+//        
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
