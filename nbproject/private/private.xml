@@ -4,22 +4,21 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
-            <file>file:/Users/gustavocamargo/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/Subject.java</file>
-            <file>file:/Users/gustavocamargo/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/Student.java</file>
-            <file>file:/Users/gustavocamargo/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/UserGUI.java</file>
-            <file>file:/Users/gustavocamargo/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/gradeViewPanel.java</file>
-            <file>file:/Users/gustavocamargo/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/Grade.java</file>
-            <file>file:/Users/gustavocamargo/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/profilePanel.java</file>
+            <file>file:/home/dillan/Documentos/Poo/SchoolSystem/src/Interfaces/CrearMatricula.java</file>
+            <file>file:/home/dillan/Documentos/Poo/SchoolSystem/src/UserInterface/CreateG.java</file>
+            <file>file:/home/dillan/Documentos/Poo/SchoolSystem/src/UserInterface/Grade.java</file>
+            <file>file:/home/dillan/Documentos/Poo/SchoolSystem/src/UserInterface/Matter.java</file>
 =======
-            <file>file:/D:/Desktop/SchoolSystem/src/schoolsystem/userInterface/Registration/RegistrerStudent.java</file>
-            <file>file:/D:/Desktop/SchoolSystem/src/schoolsystem/userInterface/Pages/UsersPage.java</file>
-            <file>file:/D:/Desktop/SchoolSystem/src/schoolsystem/userInterface/Logins/LoginStudent.java</file>
-            <file>file:/D:/Desktop/SchoolSystem/src/schoolsystem/userInterface/Registration/RegistrerTeacher.java</file>
-            <file>file:/D:/Desktop/SchoolSystem/src/schoolsystem/userInterface/Pages/PrincipalPage.java</file>
-            <file>file:/D:/Desktop/SchoolSystem/src/schoolsystem/userInterface/Logins/LoginTeacher.java</file>
-            <file>file:/D:/Desktop/SchoolSystem/src/schoolsystem/userInterface/Registration/RegistrationAdmin.java</file>
-            <file>file:/D:/Desktop/SchoolSystem/src/schoolsystem/userInterface/Logins/LoginAdmin.java</file>
->>>>>>> origin/Conde
+            <file>file:/C:/Users/maria/OneDrive/Documentos/NetBeansProjects/SchoolSystem/src/schoolsystem/users/Teacher.java</file>
+            <file>file:/C:/Users/maria/OneDrive/Documentos/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/Logins/LoginStudent.java</file>
+            <file>file:/C:/Users/maria/OneDrive/Documentos/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/Logins/LoginAdmin.java</file>
+            <file>file:/C:/Users/maria/OneDrive/Documentos/NetBeansProjects/SchoolSystem/src/schoolsystem/users/UserList.java</file>
+            <file>file:/C:/Users/maria/OneDrive/Documentos/NetBeansProjects/SchoolSystem/src/Interfaces/GUIAdmin.java</file>
+            <file>file:/C:/Users/maria/OneDrive/Documentos/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/TSInterface/TeacherInterface/profilePanel.java</file>
+            <file>file:/C:/Users/maria/OneDrive/Documentos/NetBeansProjects/SchoolSystem/src/Interfaces/Matricula.java</file>
+            <file>file:/C:/Users/maria/OneDrive/Documentos/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/TSInterface/TeacherInterface/UserGUI.java</file>
+            <file>file:/C:/Users/maria/OneDrive/Documentos/NetBeansProjects/SchoolSystem/src/schoolsystem/userInterface/TSInterface/StudentInterface/UserGUI.java</file>
+>>>>>>> origin/Mariana
         </group>
     </open-files>
 </project-private>
