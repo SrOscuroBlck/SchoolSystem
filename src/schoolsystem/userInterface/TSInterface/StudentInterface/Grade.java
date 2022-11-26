@@ -4,6 +4,7 @@
  */
 package schoolsystem.userInterface.TSInterface.StudentInterface;
 
+import UserInterfaces.Subject;
 import schoolsystem.users.Student;
 
 /**

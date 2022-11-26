@@ -154,19 +154,23 @@ public class UserGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void gradesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradesButtonActionPerformed
+       gradeCreation grades = new gradeCreation();
        
-       
+       grades.setSize(640,370);
+       grades.setLocation(0,0);
        principalPanel.removeAll();
-//       principalPanel.add(grades,BorderLayout.CENTER);
+       principalPanel.add(grades,BorderLayout.CENTER);
        principalPanel.revalidate();
        principalPanel.repaint();
        
-       
+       grades.catchTeacherPos(position);
     }//GEN-LAST:event_gradesButtonActionPerformed
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
         profilePanel profile = new profilePanel();
         
+        profile.setSize(640,370);
+        profile.setLocation(0,0);
         principalPanel.removeAll();
         principalPanel.add(profile,BorderLayout.CENTER);
         principalPanel.revalidate();

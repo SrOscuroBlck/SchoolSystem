@@ -46,8 +46,8 @@ public class Student extends User{
         return grades;
     }
 
-    public void setGrades(ArrayList<Grade> grades) {
-        this.grades = grades;
+    public void setGrade(Grade grade) {
+        grades.add(grade);
     }
     
     

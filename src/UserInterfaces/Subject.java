@@ -16,24 +16,24 @@ import java.util.Vector;
  */
 public class Subject {
     
-    private String nameMater;
+    private String subjectName;
     private ArrayList <String> teachers; // El string debe ser cambiado por la clase Teacher
 
     public Subject(){
-        this.nameMater = "";
+        this.subjectName = "";
         this.teachers = new ArrayList<>();
     }
     public Subject(String nameMater) {
-        this.nameMater = nameMater;
+        this.subjectName = nameMater;
         this.teachers = new ArrayList<>();
     }
 
-    public String getNameSubject() {
-        return nameMater;
+    public String getSubjectName() {
+        return subjectName;
     }
 
-    public void setNameSubject(String nameMater) {
-        this.nameMater = nameMater;
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
     
     public static Vector getList(){
@@ -45,7 +45,7 @@ public class Subject {
         Subject obj;
         for (int i = 0; i < subjects.size(); i++){
             obj = (Subject) subjects.elementAt(i);
-            if(obj.getNameSubject().equals(name)){
+            if(obj.getSubjectName().equals(name)){
                 return i;
             }
         }

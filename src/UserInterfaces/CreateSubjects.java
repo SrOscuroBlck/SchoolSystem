@@ -44,7 +44,7 @@ public class CreateSubjects extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tlwg Typo", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Create Matter");
+        jLabel3.setText("Create Subject");
 
         MattersList.setFont(new java.awt.Font("TlwgTypewriter", 3, 15)); // NOI18N
         MattersList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maths", "English", "Chemistry", "Philosophy", "Physical", "Physical Education", "Natural Sciences", "Social Sciences" }));

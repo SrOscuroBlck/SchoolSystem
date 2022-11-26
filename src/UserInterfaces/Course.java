@@ -7,6 +7,7 @@ package UserInterfaces;
 import List.CourAndSubjList;
 import java.util.ArrayList;
 import java.util.Vector;
+import schoolsystem.users.Student;
 
 /**
  *
@@ -14,24 +15,32 @@ import java.util.Vector;
  */
 public class Course {
     
-    private String nameGrade;
-    private ArrayList <String> students; // El String debe ser cambiado por la clase Students
+    private String courseName;
+    private ArrayList <Student> students; // El String debe ser cambiado por la clase Students
 
     public Course(){
-        this.nameGrade = "";
+        this.courseName = "";
         this.students = new ArrayList<>();
     }
     public Course(String nameGrade) {
-        this.nameGrade = nameGrade;
+        this.courseName = nameGrade;
         this.students = new ArrayList<>();
     }
 
-    public String getNameCourse() {
-        return nameGrade;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setNameCourse(String nameGrade) {
-        this.nameGrade = nameGrade;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudent(Student student) {
+        students.add(student);
     }
     
     public static Vector getList(){
@@ -43,7 +52,7 @@ public class Course {
         Course obj;
         for (int i = 0; i < courses.size(); i++){
             obj = (Course) courses.elementAt(i);
-            if(obj.getNameCourse().equals(name)){
+            if(obj.getCourseName().equals(name)){
                 return i;
             }
         }

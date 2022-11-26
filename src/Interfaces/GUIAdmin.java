@@ -6,6 +6,7 @@ package Interfaces;
 
 import UserInterfaces.CreateCourses;
 import UserInterfaces.CreateSubjects;
+import UserInterfaces.syncStudent;
 import java.awt.BorderLayout;
 import schoolsystem.userInterface.Pages.PrincipalPage;
 
@@ -31,6 +32,7 @@ public class GUIAdmin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        syncStudentBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         principal = new javax.swing.JPanel();
@@ -69,6 +71,13 @@ public class GUIAdmin extends javax.swing.JFrame {
             }
         });
 
+        syncStudentBtn.setText("Sync Student");
+        syncStudentBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                syncStudentBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -79,7 +88,8 @@ public class GUIAdmin extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(syncStudentBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(28, 28, 28))
         );
         jPanel2Layout.setVerticalGroup(
@@ -87,13 +97,15 @@ public class GUIAdmin extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(196, 196, 196)
                 .addComponent(jButton2)
-                .addGap(27, 27, 27)
-                .addComponent(jButton1)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
+                .addComponent(syncStudentBtn)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(55, 55, 55)
                 .addComponent(jButton4)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 600));
@@ -111,14 +123,14 @@ public class GUIAdmin extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(283, 283, 283)
                 .addComponent(jLabel1)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 840, 120));
@@ -193,6 +205,17 @@ public class GUIAdmin extends javax.swing.JFrame {
         pp.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void syncStudentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syncStudentBtnActionPerformed
+        syncStudent sync = new syncStudent();
+        
+        sync.setSize(840,480);
+        sync.setLocation(0,0);
+        
+        principal.removeAll();
+        principal.add(sync,BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();    }//GEN-LAST:event_syncStudentBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,6 +264,7 @@ public class GUIAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel principal;
+    private javax.swing.JButton syncStudentBtn;
     // End of variables declaration//GEN-END:variables
 
 }

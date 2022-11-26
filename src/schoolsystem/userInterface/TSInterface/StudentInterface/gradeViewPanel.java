@@ -63,7 +63,7 @@ public class gradeViewPanel extends javax.swing.JPanel {
         public Object getValueAt(int rowIndex, int columnIndex) {
              switch(columnIndex) {
                  case 0:
-                     return gradeList.get(rowIndex).getSubject().getName();
+                     return gradeList.get(rowIndex).getSubject().getSubjectName();
                  case 1:
                      return gradeList.get(rowIndex).getGrade();
                  default:

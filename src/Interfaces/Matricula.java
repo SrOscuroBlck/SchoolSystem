@@ -14,6 +14,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import UserInterfaces.Subject;
+import schoolsystem.users.Student;
 import schoolsystem.users.Teacher;
 import schoolsystem.users.UserList;
 
@@ -67,8 +68,8 @@ public class Matricula extends javax.swing.JPanel {
         try {
             for (int i = 0; i < listaC.size(); i++) {
                 course = (Course) listaC.elementAt(i);
-                if (course.getNameCourse() != null) {
-                    modelG.addElement(new CourseM(course.getNameCourse()));
+                if (course.getCourseName()!= null) {
+                    modelG.addElement(new CourseM(course.getCourseName()));
                 } else {
                     modelG.addElement(i);
                 }
@@ -83,8 +84,8 @@ public class Matricula extends javax.swing.JPanel {
         try {
             for (int i = 0; i < listaS.size(); i++) {
                 subject = (Subject) listaS.elementAt(i);
-                if (subject.getNameSubject() != null) {
-                    modelS.addElement(new SubjectM(subject.getNameSubject()));
+                if (subject.getSubjectName()!= null) {
+                    modelS.addElement(new SubjectM(subject.getSubjectName()));
                 } else {
                     modelS.addElement(i);
                 }
@@ -185,7 +186,33 @@ public class Matricula extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        // TODO add your handling code here:
+        
+        TeacherM selectedTeacher =  (TeacherM) teachers.getSelectedItem();
+        SubjectM selectedSubject = (SubjectM) subjects.getSelectedItem();
+        CourseM selectedCourse = (CourseM) courses.getSelectedItem();
+        
+        for (int i = 0; i < listaT.size(); i++) {
+           Teacher listTeacher =  (Teacher) listaT.elementAt(i);
+           if(selectedTeacher.getId().equals(listTeacher.getUser())) {
+               for (int j = 0; j < listaS.size(); j++) {
+                   Subject listSubject = (Subject) listaS.elementAt(j);
+                   if(selectedSubject.getName().equals(listSubject.getSubjectName())) {
+                       listTeacher.setSubject(listSubject);
+                       break;
+                   }
+               }
+               for (int j = 0; j < listaC.size(); j++) {
+                   Course listCourse = (Course) listaC.elementAt(j);
+                   if (selectedCourse.getName().equals(listCourse.getCourseName())) {
+                       listTeacher.setCourses(listCourse);
+                       break;
+                   }
+                   
+               }
+               break;
+           }
+        }
+        JOptionPane.showMessageDialog(null, "The teacher has been synced successfully");
     }//GEN-LAST:event_btnCrearActionPerformed
 
 

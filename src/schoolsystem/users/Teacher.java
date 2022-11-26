@@ -1,33 +1,36 @@
 package schoolsystem.users;
 
+import UserInterfaces.Course;
+import UserInterfaces.Subject;
 import java.util.ArrayList;
 import java.util.Vector;
 
 public class Teacher extends User{
 
-    private ArrayList<String> subjects; //Cambiar String por clase materia
-    private ArrayList<String> courses; //Cambiar String por clase curso
+    private ArrayList<Subject> subjects; //Cambiar String por clase materia
+    private ArrayList<Course> courses; //Cambiar String por clase curso
 
     public Teacher(String nombre, int edad, char genero, String correo, String contraseña, String usuario) {
         super(nombre, edad, genero, correo, contraseña, usuario);
-        this.subjects = new ArrayList<>();
-        this.courses = new ArrayList<>();
+        this.subjects = new ArrayList();
+        this.courses = new ArrayList();
+
     }
 
-    public ArrayList<String> getSubjects() {
+    public ArrayList<Subject> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(ArrayList<String> subjects) {
-        this.subjects = subjects;
+    public void setSubject(Subject subject) {
+        subjects.add(subject);
     }
 
-    public ArrayList<String> getCourses() {
+    public ArrayList<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(ArrayList<String> courses) {
-        this.courses = courses;
+    public void setCourses(Course course) {
+        courses.add(course);
     }
 
 
