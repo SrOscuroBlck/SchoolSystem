@@ -121,11 +121,11 @@ public class DeleteTeacher extends javax.swing.JPanel {
             Teacher teacher = (Teacher) teachers.elementAt(i);
             if (textUsername.getText().equals(teacher.getUser())){
                 UserList.deleteTeacher(i);
-                JOptionPane.showMessageDialog(null, "Student deleted successfully!");
+                JOptionPane.showMessageDialog(null, "Teacher deleted successfully!");
             }
             else{
                 if (Teacher.verifyNewUser(textUsername.getText()) == -1) {
-                    JOptionPane.showMessageDialog(null, "Student not found!");
+                    JOptionPane.showMessageDialog(null, "Teacher not found!");
                 }
             }
         }
