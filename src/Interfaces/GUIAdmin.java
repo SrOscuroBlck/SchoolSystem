@@ -29,6 +29,7 @@ public class GUIAdmin extends javax.swing.JFrame {
     public GUIAdmin() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setTitle("Admin Control Panel [ School System ]");
     }
     
 
@@ -43,6 +44,8 @@ public class GUIAdmin extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         syncStudentBtn = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         principal = new javax.swing.JPanel();
@@ -79,6 +82,8 @@ public class GUIAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(0, 0, 0));
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Log Out");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,34 +98,55 @@ public class GUIAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setText("Delete Student");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Delete Teacher");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(31, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addComponent(syncStudentBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(syncStudentBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
                 .addGap(28, 28, 28))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(196, 196, 196)
+                .addContainerGap(132, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addComponent(jButton3)
-                .addGap(18, 18, 18)
+                .addGap(46, 46, 46)
                 .addComponent(syncStudentBtn)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addComponent(jButton1)
-                .addGap(55, 55, 55)
+                .addGap(42, 42, 42)
+                .addComponent(jButton5)
+                .addGap(38, 38, 38)
+                .addComponent(jButton6)
+                .addGap(74, 74, 74)
                 .addComponent(jButton4)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 600));
@@ -135,17 +161,17 @@ public class GUIAdmin extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(350, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(327, 327, 327)
                 .addComponent(jLabel1)
-                .addGap(331, 331, 331))
+                .addContainerGap(363, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(41, 41, 41))
+                .addGap(43, 43, 43))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 840, 120));
@@ -222,12 +248,12 @@ public class GUIAdmin extends javax.swing.JFrame {
 
     private void syncStudentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syncStudentBtnActionPerformed
         syncStudent sync = new syncStudent();
-        
-        sync.setSize(840,480);
-        sync.setLocation(0,0);
-        
+
+        sync.setSize(840, 480);
+        sync.setLocation(0, 0);
+
         principal.removeAll();
-        principal.add(sync,BorderLayout.CENTER);
+        principal.add(sync, BorderLayout.CENTER);
         principal.revalidate();
         principal.repaint();    }//GEN-LAST:event_syncStudentBtnActionPerformed
 
@@ -240,6 +266,30 @@ public class GUIAdmin extends javax.swing.JFrame {
         }
         data.saveData();
     }//GEN-LAST:event_formWindowClosing
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        DeleteStudent delete = new DeleteStudent();
+
+        delete.setSize(840, 480);
+        delete.setLocation(0, 0);
+
+        principal.removeAll();
+        principal.add(delete, BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        DeleteTeacher delete = new DeleteTeacher();
+
+        delete.setSize(840, 480);
+        delete.setLocation(0, 0);
+
+        principal.removeAll();
+        principal.add(delete, BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,6 +334,8 @@ public class GUIAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

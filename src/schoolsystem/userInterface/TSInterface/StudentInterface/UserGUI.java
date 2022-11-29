@@ -28,6 +28,8 @@ public class UserGUI extends javax.swing.JFrame {
 
     public UserGUI() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setTitle("Student Control Panel [ School System ]");
     }
     
     /**
@@ -69,7 +71,7 @@ public class UserGUI extends javax.swing.JFrame {
         sideBarPanel.setBackground(new java.awt.Color(207, 102, 0));
 
         gradesButton.setBackground(new java.awt.Color(0, 0, 0));
-        gradesButton.setForeground(new java.awt.Color(255, 153, 0));
+        gradesButton.setForeground(new java.awt.Color(255, 255, 255));
         gradesButton.setText("View grades");
         gradesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +80,7 @@ public class UserGUI extends javax.swing.JFrame {
         });
 
         profileButton.setBackground(new java.awt.Color(0, 0, 0));
-        profileButton.setForeground(new java.awt.Color(255, 153, 0));
+        profileButton.setForeground(new java.awt.Color(255, 255, 255));
         profileButton.setText("View Profile");
         profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +89,7 @@ public class UserGUI extends javax.swing.JFrame {
         });
 
         outButton.setBackground(new java.awt.Color(0, 0, 0));
-        outButton.setForeground(new java.awt.Color(255, 153, 0));
+        outButton.setForeground(new java.awt.Color(255, 255, 255));
         outButton.setText("Log Out");
         outButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,13 +112,13 @@ public class UserGUI extends javax.swing.JFrame {
         sideBarPanelLayout.setVerticalGroup(
             sideBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarPanelLayout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
+                .addContainerGap(225, Short.MAX_VALUE)
                 .addComponent(gradesButton)
-                .addGap(60, 60, 60)
+                .addGap(83, 83, 83)
                 .addComponent(profileButton)
-                .addGap(51, 51, 51)
+                .addGap(99, 99, 99)
                 .addComponent(outButton)
-                .addGap(91, 91, 91))
+                .addGap(21, 21, 21))
         );
 
         mainPanel.add(sideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
