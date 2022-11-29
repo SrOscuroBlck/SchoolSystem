@@ -5,6 +5,7 @@
 package schoolsystem.userInterface.TSInterface.TeacherInterface;
 
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import schoolsystem.users.UserList;
 import schoolsystem.users.Teacher;
 
@@ -199,13 +200,17 @@ public final class profilePanel extends javax.swing.JPanel {
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         Teacher teacher = (Teacher)lista.elementAt(this.position);
-        teacher.setName(nameField.getText());
-        teacher.setAge(Integer.parseInt(ageField.getText()));
-        teacher.setEmail(emailField.getText());
-        teacher.setUser(userField.getText());
-        
+        if (Teacher.verifyNewUser(userField.getText()) == -1) {
+            teacher.setName(nameField.getText());
+            teacher.setAge(Integer.parseInt(ageField.getText()));
+            teacher.setEmail(emailField.getText());
+            teacher.setUser(userField.getText());
+            JOptionPane.showMessageDialog(null,"Information has been changed successfully!");
+        }else {
+            JOptionPane.showMessageDialog(null,"This teacher is already registered");
+        }
+       
         profilePanel profile = new profilePanel(position);
-        
         userGUI.refreshProfile(profile);
     }//GEN-LAST:event_editBtnActionPerformed
 

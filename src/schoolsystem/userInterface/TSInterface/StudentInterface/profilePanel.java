@@ -5,6 +5,7 @@
 package schoolsystem.userInterface.TSInterface.StudentInterface;
 
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import schoolsystem.users.Student;
 import schoolsystem.users.UserList;
 import static schoolsystem.users.Student.getList;
@@ -247,14 +248,23 @@ public class profilePanel extends javax.swing.JPanel {
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         Student student = (Student)lista.elementAt(position);
-        student.setName(nameField.getText());
-        student.setAge(Integer.parseInt(ageField.getText()));
-        student.setEmail(emailField.getText());
-        student.setUser(userField.getText());
-        student.setParentsName(parentsField.getText());
-        student.setObservations(observationsArea.getText());
+        
+        if (Student.verifyNewUser(userField.getText()) == -1) {
+            student.setName(nameField.getText());
+            student.setAge(Integer.parseInt(ageField.getText()));
+            student.setEmail(emailField.getText());
+            student.setUser(userField.getText());
+            student.setParentsName(parentsField.getText());
+            student.setObservations(observationsArea.getText());
+            JOptionPane.showMessageDialog(null,"Information has been changed successfully!");
+
+        }else {
+            JOptionPane.showMessageDialog(null,"This student is already registered");
+        }
+        
         profilePanel profile = new profilePanel(position);
         userGUI.refreshProfile(profile);
+        
     }//GEN-LAST:event_editBtnActionPerformed
 
     private void genderFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderFieldActionPerformed
