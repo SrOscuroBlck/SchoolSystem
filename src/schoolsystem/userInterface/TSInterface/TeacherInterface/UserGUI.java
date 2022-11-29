@@ -27,6 +27,7 @@ public class UserGUI extends javax.swing.JFrame {
     public UserGUI() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setTitle("Teacher Control Panel [ School System ]");
     }
     
      /**
@@ -71,7 +72,7 @@ public class UserGUI extends javax.swing.JFrame {
         sideBarPanel.setBackground(new java.awt.Color(207, 102, 0));
 
         gradesButton.setBackground(new java.awt.Color(0, 0, 0));
-        gradesButton.setForeground(new java.awt.Color(255, 153, 0));
+        gradesButton.setForeground(new java.awt.Color(255, 255, 255));
         gradesButton.setText("Set Grades");
         gradesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +81,7 @@ public class UserGUI extends javax.swing.JFrame {
         });
 
         profileButton.setBackground(new java.awt.Color(0, 0, 0));
-        profileButton.setForeground(new java.awt.Color(255, 153, 0));
+        profileButton.setForeground(new java.awt.Color(255, 255, 255));
         profileButton.setText("View Profile");
         profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +90,7 @@ public class UserGUI extends javax.swing.JFrame {
         });
 
         outButton.setBackground(new java.awt.Color(0, 0, 0));
-        outButton.setForeground(new java.awt.Color(255, 153, 0));
+        outButton.setForeground(new java.awt.Color(255, 255, 255));
         outButton.setText("Log Out");
         outButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +99,7 @@ public class UserGUI extends javax.swing.JFrame {
         });
 
         reportsButton.setBackground(new java.awt.Color(0, 0, 0));
-        reportsButton.setForeground(new java.awt.Color(255, 153, 0));
+        reportsButton.setForeground(new java.awt.Color(255, 255, 255));
         reportsButton.setText("View Reports");
         reportsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,15 +123,15 @@ public class UserGUI extends javax.swing.JFrame {
         sideBarPanelLayout.setVerticalGroup(
             sideBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarPanelLayout.createSequentialGroup()
-                .addContainerGap(229, Short.MAX_VALUE)
+                .addContainerGap(160, Short.MAX_VALUE)
                 .addComponent(gradesButton)
-                .addGap(26, 26, 26)
+                .addGap(64, 64, 64)
                 .addComponent(reportsButton)
-                .addGap(27, 27, 27)
+                .addGap(68, 68, 68)
                 .addComponent(profileButton)
-                .addGap(26, 26, 26)
+                .addGap(98, 98, 98)
                 .addComponent(outButton)
-                .addGap(100, 100, 100))
+                .addGap(14, 14, 14))
         );
 
         mainPanel.add(sideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
