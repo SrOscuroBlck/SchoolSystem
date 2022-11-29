@@ -5,6 +5,12 @@
 package schoolsystem.userInterface.Pages;
 
 
+import DataControl.DataControl;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import schoolsystem.userInterface.Logins.LoginStudent;
 import schoolsystem.userInterface.Logins.LoginTeacher;
 
@@ -13,6 +19,8 @@ import schoolsystem.userInterface.Logins.LoginTeacher;
  * @author JUAN MANUEL
  */
 public class UsersPage extends javax.swing.JFrame {
+    
+    DataControl data = new DataControl();
 
     /**
      * Creates new form UsersPage
@@ -42,6 +50,11 @@ public class UsersPage extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,7 +85,7 @@ public class UsersPage extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
-        jLabel2.setText("Choose how to sign up");
+        jLabel2.setText("Choose how to log in");
 
         teacherBtn.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         teacherBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/teacher.png"))); // NOI18N
@@ -113,11 +126,11 @@ public class UsersPage extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backBtn)))
+                        .addComponent(backBtn))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jLabel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -131,7 +144,7 @@ public class UsersPage extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(teacherBtn)
                     .addComponent(studentBtn))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 420, 170));
@@ -167,6 +180,16 @@ public class UsersPage extends javax.swing.JFrame {
         PrincipalPage principalPage = new PrincipalPage();
         principalPage.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Path directory = Path.of("src/DataControl/Files");
+        try {
+            DataControl.deleteDirectory(directory);
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        data.saveData();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

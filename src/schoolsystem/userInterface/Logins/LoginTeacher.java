@@ -4,8 +4,15 @@
  */
 package schoolsystem.userInterface.Logins;
 
+import DataControl.DataControl;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import schoolsystem.userInterface.Pages.PrincipalPage;
 import schoolsystem.userInterface.Pages.UsersPage;
 import schoolsystem.userInterface.Registration.RegistrationTeacher;
 import schoolsystem.userInterface.TSInterface.TeacherInterface.UserGUI;
@@ -16,6 +23,10 @@ import schoolsystem.users.Teacher;
  * @author JUAN MANUEL
  */
 public class LoginTeacher extends javax.swing.JFrame {
+    
+    DataControl data = new DataControl();
+    
+    private int loginKey;
 
     /**
      * Creates new form LoginTeacher
@@ -52,6 +63,11 @@ public class LoginTeacher extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         BackGround.setBackground(new java.awt.Color(255, 255, 255));
         BackGround.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,7 +126,7 @@ public class LoginTeacher extends javax.swing.JFrame {
 
         registerBtn.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         registerBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/add-user.png"))); // NOI18N
-        registerBtn.setText("Registrer");
+        registerBtn.setText("Register");
         registerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerBtnActionPerformed(evt);
@@ -155,19 +171,20 @@ public class LoginTeacher extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(userField)
-                                            .addComponent(passwordField))
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(userField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(passwordField, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(toggleShowPassword))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel6))
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                                        .addComponent(toggleShowPassword))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(backBtn)
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -178,13 +195,13 @@ public class LoginTeacher extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(backBtn)
-                        .addGap(39, 39, 39))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel2)
-                        .addGap(7, 7, 7)))
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(30, 30, 30)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
@@ -197,7 +214,7 @@ public class LoginTeacher extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(toggleShowPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 25, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logInBtn)
                     .addComponent(registerBtn))
@@ -232,15 +249,17 @@ public class LoginTeacher extends javax.swing.JFrame {
         if (!userField.getText().isEmpty() && !passwordField.getText().isEmpty()) {
             String user = userField.getText();
             String password = passwordField.getText();
-            int loginKey = Teacher.verifyLogin(user, password);
+            loginKey = Teacher.verifyLogin(user, password);
 
             if (loginKey == -1) {
                 JOptionPane.showMessageDialog(null, "Wrong username or password");
             } else {
                 JOptionPane.showMessageDialog(null, "Login successful!");
-                UserGUI tea = new UserGUI();
+                UserGUI tea = new UserGUI(loginKey);
+                System.out.println("loginKey: " + loginKey);
                 this.setVisible(false);
                 tea.setVisible(true);
+                
             }
         } else {
             JOptionPane.showMessageDialog(null, "Fill in all the fields first");
@@ -259,6 +278,16 @@ public class LoginTeacher extends javax.swing.JFrame {
         usersPage.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Path directory = Path.of("src/DataControl/Files");
+        try {
+            DataControl.deleteDirectory(directory);
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        data.saveData();
+    }//GEN-LAST:event_formWindowClosing
+    
     /**
      * @param args the command line arguments
      */

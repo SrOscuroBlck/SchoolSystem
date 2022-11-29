@@ -4,10 +4,16 @@
  */
 package Interfaces;
 
+import DataControl.DataControl;
 import UserInterfaces.CreateCourses;
 import UserInterfaces.CreateSubjects;
 import UserInterfaces.syncStudent;
 import java.awt.BorderLayout;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import schoolsystem.userInterface.Pages.PrincipalPage;
 
 
@@ -17,10 +23,14 @@ import schoolsystem.userInterface.Pages.PrincipalPage;
  */
 public class GUIAdmin extends javax.swing.JFrame {
     
+    DataControl data = new DataControl();
+           
+    
     public GUIAdmin() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,6 +48,11 @@ public class GUIAdmin extends javax.swing.JFrame {
         principal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -114,23 +129,23 @@ public class GUIAdmin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Hola Administrador");
+        jLabel1.setText("Hello, Admin");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(283, 283, 283)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(350, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addGap(331, 331, 331))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 840, 120));
@@ -215,6 +230,16 @@ public class GUIAdmin extends javax.swing.JFrame {
         principal.add(sync,BorderLayout.CENTER);
         principal.revalidate();
         principal.repaint();    }//GEN-LAST:event_syncStudentBtnActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Path directory = Path.of("src/DataControl/Files");
+        try {
+            DataControl.deleteDirectory(directory);
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        data.saveData();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

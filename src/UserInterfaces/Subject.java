@@ -4,6 +4,7 @@ package UserInterfaces;
 import List.CourAndSubjList;
 import java.util.ArrayList;
 import java.util.Vector;
+import schoolsystem.users.Teacher;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -17,7 +18,7 @@ import java.util.Vector;
 public class Subject {
     
     private String subjectName;
-    private ArrayList <String> teachers; // El string debe ser cambiado por la clase Teacher
+    private ArrayList <Teacher> teachers; // El string debe ser cambiado por la clase Teacher
 
     public Subject(){
         this.subjectName = "";
@@ -34,6 +35,10 @@ public class Subject {
 
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
+    }
+    
+    public void setTeacher(Teacher teacher) {
+        teachers.add(teacher);
     }
     
     public static Vector getList(){

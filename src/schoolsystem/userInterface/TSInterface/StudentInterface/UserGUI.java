@@ -7,6 +7,12 @@ package schoolsystem.userInterface.TSInterface.StudentInterface;
 import java.awt.BorderLayout;
 import schoolsystem.userInterface.Pages.PrincipalPage;
 import schoolsystem.users.Student;
+import DataControl.DataControl;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -15,17 +21,21 @@ import schoolsystem.users.Student;
  */
 public class UserGUI extends javax.swing.JFrame {
     
+    public DataControl data = new DataControl();
+    
     public int position;
     
-    public void catchStudentPos(int pos) {
-        position = pos;
-        System.out.println("UserGUI: " + position);
-    }
 
+    public UserGUI() {
+        initComponents();
+    }
+    
     /**
      * Creates new form UserGUI
+     * @param pos
      */
-    public UserGUI() {
+    public UserGUI(int pos) {
+        position = pos;
         initComponents();
     }
 
@@ -48,6 +58,11 @@ public class UserGUI extends javax.swing.JFrame {
         principalPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -155,12 +170,9 @@ public class UserGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void gradesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradesButtonActionPerformed
-       gradeViewPanel grades = new gradeViewPanel();
+       gradeViewPanel grades = new gradeViewPanel(position);
        grades.setSize(640,370);
-       grades.setLocation(0,0);
-       
-       System.out.println(position);
-       
+       grades.setLocation(0,0);       
        principalPanel.removeAll();
        principalPanel.add(grades,BorderLayout.CENTER);
        principalPanel.revalidate();
@@ -170,7 +182,7 @@ public class UserGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_gradesButtonActionPerformed
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
-        profilePanel profile = new profilePanel();
+        profilePanel profile = new profilePanel(position);
 
         profile.setSize(640,370);
         profile.setLocation(0,0);
@@ -180,7 +192,6 @@ public class UserGUI extends javax.swing.JFrame {
         principalPanel.revalidate();
         principalPanel.repaint();
         
-        profile.catchStudentPos(position);
         
     }//GEN-LAST:event_profileButtonActionPerformed
 
@@ -189,6 +200,16 @@ public class UserGUI extends javax.swing.JFrame {
         this.setVisible(false);
         pp.setVisible(true);
     }//GEN-LAST:event_outButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Path directory = Path.of("src/DataControl/Files");
+        try {
+            DataControl.deleteDirectory(directory);
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        data.saveData();
+    }//GEN-LAST:event_formWindowClosing
 
     public void refreshProfile(profilePanel profile) {
         profile.setSize(640,370);
@@ -199,7 +220,6 @@ public class UserGUI extends javax.swing.JFrame {
         principalPanel.revalidate();
         principalPanel.repaint();
         
-        profile.catchStudentPos(position);
     }
     
     /**

@@ -4,7 +4,13 @@
  */
 package schoolsystem.userInterface.Logins;
 
+import DataControl.DataControl;
 import Interfaces.GUIAdmin;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import schoolsystem.userInterface.Pages.PrincipalPage;
 import schoolsystem.userInterface.Registration.RegistrationAdmin;
@@ -16,7 +22,7 @@ import schoolsystem.users.Admin;
  */
 public class LoginAdmin extends javax.swing.JFrame {
     
-    
+    DataControl data = new DataControl();
 
     /**
      * Creates new form LoginAdmin
@@ -53,6 +59,11 @@ public class LoginAdmin extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         BackGround.setBackground(new java.awt.Color(255, 255, 255));
         BackGround.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,7 +122,7 @@ public class LoginAdmin extends javax.swing.JFrame {
 
         registerBtn.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         registerBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schoolsystem/multimedia/add-user.png"))); // NOI18N
-        registerBtn.setText("Registrer");
+        registerBtn.setText("Register");
         registerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerBtnActionPerformed(evt);
@@ -160,15 +171,14 @@ public class LoginAdmin extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(jLabel2))
                                             .addComponent(userField, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(passwordField, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(toggleShowPassword))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(backBtn)
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -259,6 +269,16 @@ public class LoginAdmin extends javax.swing.JFrame {
         PrincipalPage principalPage = new PrincipalPage();
         principalPage.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Path directory = Path.of("src/DataControl/Files");
+        try {
+            DataControl.deleteDirectory(directory);
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        data.saveData();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

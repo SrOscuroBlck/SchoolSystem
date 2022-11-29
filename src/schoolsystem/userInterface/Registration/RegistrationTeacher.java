@@ -4,8 +4,15 @@
  */
 package schoolsystem.userInterface.Registration;
 
+import DataControl.DataControl;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import schoolsystem.userInterface.Logins.LoginTeacher;
+import schoolsystem.userInterface.Pages.PrincipalPage;
 import schoolsystem.users.UserList;
 import schoolsystem.users.Teacher;
 
@@ -14,6 +21,8 @@ import schoolsystem.users.Teacher;
  * @author JUAN MANUEL
  */
 public class RegistrationTeacher extends javax.swing.JFrame {
+    
+    DataControl data = new DataControl();
 
     char gender;
     /**
@@ -56,6 +65,14 @@ public class RegistrationTeacher extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         BackGround.setBackground(new java.awt.Color(255, 255, 255));
         BackGround.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -142,7 +159,7 @@ public class RegistrationTeacher extends javax.swing.JFrame {
         jLabel7.setText("E-Mail");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
-        jLabel8.setText("Registrer Teacher");
+        jLabel8.setText("Register Teacher");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -272,6 +289,20 @@ public class RegistrationTeacher extends javax.swing.JFrame {
     private void userFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userFieldActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Path directory = Path.of("src/DataControl/Files");
+        try {
+            DataControl.deleteDirectory(directory);
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        data.saveData();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

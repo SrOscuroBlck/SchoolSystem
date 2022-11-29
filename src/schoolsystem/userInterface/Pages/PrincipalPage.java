@@ -4,6 +4,12 @@
  */
 package schoolsystem.userInterface.Pages;
 
+import DataControl.DataControl;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import schoolsystem.userInterface.Logins.LoginAdmin;
 
 /**
@@ -11,6 +17,8 @@ import schoolsystem.userInterface.Logins.LoginAdmin;
  * @author JUAN MANUEL
  */
 public class PrincipalPage extends javax.swing.JFrame {
+    
+    DataControl data = new DataControl();
 
     /**
      * Creates new form NewJFrame
@@ -41,6 +49,11 @@ public class PrincipalPage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,6 +169,17 @@ public class PrincipalPage extends javax.swing.JFrame {
         LoginAdmin loginAdmin = new LoginAdmin();
         loginAdmin.setVisible(true);
     }//GEN-LAST:event_adminBtnActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        System.out.println("Hola mundo");
+        Path directory = Path.of("src/DataControl/Files");
+        try {
+            DataControl.deleteDirectory(directory);
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        data.saveData();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

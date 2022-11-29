@@ -12,35 +12,37 @@ import schoolsystem.users.Teacher;
  *
  * @author gustavocamargo
  */
-public class profilePanel extends javax.swing.JPanel {
+public final class profilePanel extends javax.swing.JPanel {
     
     UserGUI userGUI = new UserGUI();
     
     public int position;
-    
+        
     public Vector lista = UserList.getTeacherList();
-    
-    
-    public void catchTeacherPos(int pos) {
-        position = pos;
-    }
-    
-    public Teacher teacher = (Teacher)lista.elementAt(position);
 
     
     /**
      * Creates new form profilePanel
+     * @param pos
      */
-    public profilePanel() {
+    public profilePanel(int pos) {
+        this.position = pos;
+        System.out.println("Profile: " + this.position);
         initComponents();
-        System.out.println("Profile: " + position);
+        fillSpaces();
+    }
+    
+    
+    public void fillSpaces() {
+        Teacher teacher = (Teacher)lista.elementAt(this.position);
+        System.out.println("fill: " + position);
+        System.out.println("Name: " + teacher.getName());
         nameField.setText(teacher.getName());
         userField.setText(teacher.getUser());
         ageField.setText(Integer.toString(teacher.getAge()));
         genderField.setText(Character.toString(teacher.getGender()));
         emailField.setText(teacher.getEmail());
     }
-    
     
 
     /**
@@ -196,12 +198,13 @@ public class profilePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_emailFieldActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        Teacher teacher = (Teacher)lista.elementAt(this.position);
         teacher.setName(nameField.getText());
         teacher.setAge(Integer.parseInt(ageField.getText()));
         teacher.setEmail(emailField.getText());
         teacher.setUser(userField.getText());
         
-        profilePanel profile = new profilePanel();
+        profilePanel profile = new profilePanel(position);
         
         userGUI.refreshProfile(profile);
     }//GEN-LAST:event_editBtnActionPerformed

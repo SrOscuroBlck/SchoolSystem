@@ -30,36 +30,31 @@ public class gradeCreation extends javax.swing.JPanel {
     DefaultComboBoxModel modelSt = new DefaultComboBoxModel();
     
     
-    UserGUI userGUI = new UserGUI();
     
     public int position;
     
     public Vector lista = UserList.getTeacherList();
-    public Vector students = UserList.getStudentList();
     
+    public Vector students = UserList.getStudentList(); 
     
-    public void catchTeacherPos(int pos) {
-        position = pos;
-    }
-    
-    public Teacher teacher = (Teacher)lista.elementAt(position);
-    
-    public String courseN;
     
     
 
     /**
      * Creates new form gradeCreation
+     * @param pos
      */
-    public gradeCreation() {
+    public gradeCreation(int pos) {
+        position = pos;
         initComponents();
         loadCourse(coursesComboBox);
         loadStudents(studentsComboBox);
         loadSubjects(subjectsComboBox);
-        
     }
     
     private void loadCourse(JComboBox coursesComboBox) {
+        Teacher teacher = (Teacher)lista.elementAt(position);
+        System.out.println(teacher.getCourses().size());
         try {
             for (int i = 0; i < teacher.getCourses().size(); i++) {
                  
@@ -78,11 +73,12 @@ public class gradeCreation extends javax.swing.JPanel {
     public Course course;
     
     private void loadStudents(JComboBox studentsComboBox) {
+        Course selectedCourse = course;
         try {
-            for (int i = 0; i < course.getStudents().size(); i++) {
+            for (int i = 0; i < selectedCourse.getStudents().size(); i++) {
                  
-                if (course.getStudents().get(i)!= null) {
-                    modelSt.addElement(new StudentM(course.getStudents().get(i).getName(), course.getStudents().get(i).getUser()));
+                if (selectedCourse.getStudents().get(i)!= null) {
+                    modelSt.addElement(new StudentM(selectedCourse.getStudents().get(i).getName(), selectedCourse.getStudents().get(i).getUser()));
                 } else {
                     modelSt.addElement(i);
                 }
@@ -94,6 +90,7 @@ public class gradeCreation extends javax.swing.JPanel {
     }
     
     private void loadSubjects(JComboBox subjectsComboBox) {
+        Teacher teacher = (Teacher)lista.elementAt(position);
         try {
             for (int i = 0; i < teacher.getSubjects().size(); i++) {
                  
@@ -108,12 +105,7 @@ public class gradeCreation extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "ERROR", "", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-        public Subject subject;
-
-    
-    
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -258,6 +250,7 @@ public class gradeCreation extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        Teacher teacher = (Teacher)lista.elementAt(position);
         StudentM selectedStudent = (StudentM) studentsComboBox.getSelectedItem();
         SubjectM selectedSubject = (SubjectM) subjectsComboBox.getSelectedItem();
         
@@ -288,6 +281,7 @@ public class gradeCreation extends javax.swing.JPanel {
     }//GEN-LAST:event_coursesComboBoxActionPerformed
 
     private void coursesComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_coursesComboBoxItemStateChanged
+        Teacher teacher = (Teacher)lista.elementAt(position);
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             CourseM selectedCourse = (CourseM) coursesComboBox.getSelectedItem();
             for (int i = 0; i < teacher.getCourses().size(); i++) {
@@ -296,7 +290,6 @@ public class gradeCreation extends javax.swing.JPanel {
                 }  
             }
         }
-        loadCourse(coursesComboBox);
     }//GEN-LAST:event_coursesComboBoxItemStateChanged
 
     private void subjectsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectsComboBoxActionPerformed

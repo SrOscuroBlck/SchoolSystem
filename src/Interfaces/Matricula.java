@@ -14,6 +14,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import UserInterfaces.Subject;
+import java.util.ArrayList;
 import schoolsystem.users.Student;
 import schoolsystem.users.Teacher;
 import schoolsystem.users.UserList;
@@ -210,6 +211,16 @@ public class Matricula extends javax.swing.JPanel {
                    
                }
                break;
+           }
+        }
+        for (int i = 0; i < listaT.size(); i++) {
+           Teacher listTeacher =  (Teacher) listaT.elementAt(i);
+           if(selectedTeacher.getId().equals(listTeacher.getUser())) {
+               ArrayList coursesList = listTeacher.getCourses();
+               for (int j = 0; j < coursesList.size(); j++) {
+                   Course cursito = (Course) coursesList.get(j);
+                   System.out.println(cursito.getCourseName());
+               }
            }
         }
         JOptionPane.showMessageDialog(null, "The teacher has been synced successfully");

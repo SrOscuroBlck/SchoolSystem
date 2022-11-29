@@ -21,20 +21,15 @@ public class gradeViewPanel extends javax.swing.JPanel {
     public Vector lista = UserList.getStudentList();
     
     
-    public void catchStudentPos(int pos) {
-        position = pos;
-    }
-    
-    public Student student = (Student)lista.elementAt(position);
-
     /**
      * Creates new form gradeViewPanel
+     * @param pos
      */
-    public gradeViewPanel() {
+    public gradeViewPanel(int pos) {
+        position = pos;
         initComponents();
-        
+        Student student = (Student)lista.elementAt(position);
         gradeListModel grades = new gradeListModel(student.getGrades());
-
         gradeTable.setModel(grades);
         gradeTable.setAutoCreateRowSorter(true);
     }

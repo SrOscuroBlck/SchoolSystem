@@ -4,7 +4,13 @@
  */
 package schoolsystem.userInterface.TSInterface.TeacherInterface;
 
+import DataControl.DataControl;
 import java.awt.BorderLayout;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import schoolsystem.userInterface.Pages.PrincipalPage;
 
 
@@ -14,16 +20,22 @@ import schoolsystem.userInterface.Pages.PrincipalPage;
  */
 public class UserGUI extends javax.swing.JFrame {
     
-    public int position;
+    DataControl data = new DataControl();
     
-    public void catchTeacherPos(int pos) {
-        position = pos;
-    }
-
-    /**
-     * Creates new form UserGUI
-     */
+    public int position;
+   
     public UserGUI() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+    }
+    
+     /**
+     * Creates new form UserGUI
+     * @param pos
+     */
+    public UserGUI(int pos) {
+        this.position = pos;
+        System.out.println("UserGUI: " + this.position);
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -42,11 +54,17 @@ public class UserGUI extends javax.swing.JFrame {
         gradesButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
         outButton = new javax.swing.JButton();
+        reportsButton = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         logoLabel = new javax.swing.JLabel();
         principalPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -79,6 +97,15 @@ public class UserGUI extends javax.swing.JFrame {
             }
         });
 
+        reportsButton.setBackground(new java.awt.Color(0, 0, 0));
+        reportsButton.setForeground(new java.awt.Color(255, 153, 0));
+        reportsButton.setText("View Reports");
+        reportsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout sideBarPanelLayout = new javax.swing.GroupLayout(sideBarPanel);
         sideBarPanel.setLayout(sideBarPanelLayout);
         sideBarPanelLayout.setHorizontalGroup(
@@ -88,19 +115,22 @@ public class UserGUI extends javax.swing.JFrame {
                 .addGroup(sideBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(gradesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(outButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(outButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reportsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(61, 61, 61))
         );
         sideBarPanelLayout.setVerticalGroup(
             sideBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarPanelLayout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
+                .addContainerGap(229, Short.MAX_VALUE)
                 .addComponent(gradesButton)
-                .addGap(60, 60, 60)
+                .addGap(26, 26, 26)
+                .addComponent(reportsButton)
+                .addGap(27, 27, 27)
                 .addComponent(profileButton)
-                .addGap(49, 49, 49)
+                .addGap(26, 26, 26)
                 .addComponent(outButton)
-                .addGap(93, 93, 93))
+                .addGap(100, 100, 100))
         );
 
         mainPanel.add(sideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
@@ -154,7 +184,7 @@ public class UserGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void gradesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradesButtonActionPerformed
-       gradeCreation grades = new gradeCreation();
+       gradeCreation grades = new gradeCreation(position);
        
        grades.setSize(640,370);
        grades.setLocation(0,0);
@@ -163,11 +193,10 @@ public class UserGUI extends javax.swing.JFrame {
        principalPanel.revalidate();
        principalPanel.repaint();
        
-       grades.catchTeacherPos(position);
     }//GEN-LAST:event_gradesButtonActionPerformed
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
-        profilePanel profile = new profilePanel();
+        profilePanel profile = new profilePanel(position);
         
         profile.setSize(640,370);
         profile.setLocation(0,0);
@@ -175,8 +204,6 @@ public class UserGUI extends javax.swing.JFrame {
         principalPanel.add(profile,BorderLayout.CENTER);
         principalPanel.revalidate();
         principalPanel.repaint();
-        
-        profile.catchTeacherPos(position);
         
     }//GEN-LAST:event_profileButtonActionPerformed
 
@@ -186,6 +213,27 @@ public class UserGUI extends javax.swing.JFrame {
         pp.setVisible(true);
     }//GEN-LAST:event_outButtonActionPerformed
 
+    private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
+        reportPanel report = new reportPanel(position);
+        
+        report.setSize(640,370);
+        report.setLocation(0,0);
+        principalPanel.removeAll();
+        principalPanel.add(report,BorderLayout.CENTER);
+        principalPanel.revalidate();
+        principalPanel.repaint();
+    }//GEN-LAST:event_reportsButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Path directory = Path.of("src/DataControl/Files");
+        try {
+            DataControl.deleteDirectory(directory);
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        data.saveData();
+    }//GEN-LAST:event_formWindowClosing
+
     public void refreshProfile(profilePanel profile) {
         profile.setSize(640,370);
         profile.setLocation(0,0);
@@ -194,8 +242,6 @@ public class UserGUI extends javax.swing.JFrame {
         principalPanel.add(profile,BorderLayout.CENTER);
         principalPanel.revalidate();
         principalPanel.repaint();
-        
-        profile.catchTeacherPos(position);
     };
     
     /**
@@ -242,6 +288,7 @@ public class UserGUI extends javax.swing.JFrame {
     private javax.swing.JButton outButton;
     private javax.swing.JPanel principalPanel;
     private javax.swing.JButton profileButton;
+    private javax.swing.JButton reportsButton;
     private javax.swing.JPanel sideBarPanel;
     // End of variables declaration//GEN-END:variables
 }

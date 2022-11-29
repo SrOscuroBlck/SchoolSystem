@@ -21,20 +21,16 @@ public class profilePanel extends javax.swing.JPanel {
     
     public Vector lista = UserList.getStudentList();
     
-    
-    public void catchStudentPos(int pos) {
-        position = pos;
-    }
-    
-    public Student student = (Student)lista.elementAt(position);
 
     
     /**
      * Creates new form profilePanel
+     * @param pos
      */
-    public profilePanel() {
+    public profilePanel(int pos) {
+        this.position = pos;
         initComponents();
-        System.out.println("Profile: " + position);
+        Student student = (Student)lista.elementAt(position);
         nameField.setText(student.getName());
         userField.setText(student.getUser());
         ageField.setText(Integer.toString(student.getAge()));
@@ -250,15 +246,15 @@ public class profilePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_parentsFieldActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        Student student = (Student)lista.elementAt(position);
         student.setName(nameField.getText());
         student.setAge(Integer.parseInt(ageField.getText()));
         student.setEmail(emailField.getText());
         student.setUser(userField.getText());
         student.setParentsName(parentsField.getText());
         student.setObservations(observationsArea.getText());
-        profilePanel profile = new profilePanel();
+        profilePanel profile = new profilePanel(position);
         userGUI.refreshProfile(profile);
-        
     }//GEN-LAST:event_editBtnActionPerformed
 
     private void genderFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderFieldActionPerformed
